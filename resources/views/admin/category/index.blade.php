@@ -6,27 +6,27 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">All City</h4>
+                    <h4 class="mb-sm-0">All {{ $city->city_name }} Category</h4>
                 </div>
             </div>
         </div>
         <!-- end page title -->
 
-        <a href="{{ route('city.add') }}" class="btn btn-primary mb-2">Add City</a>
+        <a href="{{ route('city.add') }}" class="btn btn-primary mb-2">Add Category</a>
 
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">All City Data</h4>
+                        <h4 class="card-title">All Category</h4>
 
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>City Name</th>
-                                    <th>City Picture</th>
+                                    <th>No</th>
+                                    <th>Category Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,15 +34,14 @@
 
                             <tbody>
                                 @php($i = 1)
-                                @foreach ($cities as $city)
+                                @foreach ($categories as $category)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $city->city_name }}</td>
-                                        <td><img src="{{ asset('storage/' . $city->city_picture) }}" alt="city picture" style="width: 50px; height: 50px"></td>
+                                        <td>{{ $category->category_name }}</td>
                                         <td>
-                                            <a href="{{ route('category.index', $city->city_slug) }}" class="btn btn-primary sm" title="Show Data"><i class="fas fa-eye"></i></a>
-                                            <a href="{{ route('city.edit', $city->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('city.delete', $city->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ route('category.index', $category->category_slug) }}" class="btn btn-primary sm" title="Show Data"><i class="fas fa-eye"></i></a>
+                                            {{-- <a href="{{ route('city.edit', $category->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('city.delete', $category->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a> --}}
                                         </td>
                                     </tr>
                                 @endforeach

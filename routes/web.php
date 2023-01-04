@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,16 @@ Route::controller(CityController::class)->group(function () {
     Route::get('/city/edit/{city}', 'edit')->name('city.edit');
     Route::post('/city/edit/{city}', 'update')->name('city.update');
     Route::get('/city/delete/{city}', 'destroy')->name('city.delete');
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/{city:city_slug}', 'index')->name('category.index');
+    // Route::get('/city', 'index')->name('city.index');
+    // Route::get('/city/add', 'create')->name('city.add');
+    // Route::post('/city/add', 'store')->name('city.store');
+    // Route::get('/city/edit/{city}', 'edit')->name('city.edit');
+    // Route::post('/city/edit/{city}', 'update')->name('city.update');
+    // Route::get('/city/delete/{city}', 'destroy')->name('city.delete');
 });
 
 Route::get('/dashboard', function () {
