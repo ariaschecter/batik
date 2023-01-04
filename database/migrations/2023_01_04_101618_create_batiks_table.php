@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('batiks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id');
+            $table->foreignId('sub_id');
+            $table->string('batik_name');
+            $table->string('batik_slug');
+            $table->string('batik_picture');
+            $table->text('batik_description');
             $table->timestamps();
         });
     }

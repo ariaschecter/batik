@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::controller(CityController::class)->group(function () {
+    Route::get('/city', 'index')->name('city.index');
+    Route::get('/city/add', 'create')->name('city.add');
+    Route::post('/city/add', 'store')->name('city.store');
+    Route::get('/city/edit/{city}', 'edit')->name('city.edit');
+    Route::post('/city/edit/{city}', 'update')->name('city.update');
+    Route::get('/city/delete/{city}', 'destroy')->name('city.delete');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
