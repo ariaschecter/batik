@@ -12,16 +12,16 @@
 
                 <h4 class="card-title">Add City </h4>
 
-                <form method="post" action="{{ route('batik.store', $category->category_slug) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('batik.store', $selected_category->category_slug) }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-3">
                         <label for="category_id" class="col-sm-2 col-form-label">Batik Category</label>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default Select Example" name="category_id" id="category_id">
-                                <option selected>Open this select menu</option>
+                                <option>Open this select menu</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    <option value="{{ $category->id }}" {{ ($category->id == $batik->category_id ? 'selected' : '') }}>{{ $category->category_name }}</option>
                                 @endforeach
                             </select>
                             @error('category_id') <span class="text-danger"> {{ $message }}</span> @enderror
@@ -32,7 +32,10 @@
                     <div class="row mb-3">
                         <label for="sub_id" class="col-sm-2 col-form-label">Batik Sub Category <span class="badge rounded-pill bg-info float-end">Optional</span></label>
                         <div class="col-sm-10">
-                            <select id="sub_id" name="sub_id" class="form-control">
+                            <select class="form-select" aria-label="Default Select Example" name="sub_id" id="sub_id">
+                                @foreach ($selected_category->sub_category as $sub)
+                                    <option value="{{ $sub->id }}" {{ ($sub->id == $batik->sub_id ? 'selected' : '') }}>{{ $sub->sub_name }}</option>
+                                @endforeach
                             </select>
                             @error('sub_id') <span class="text-danger"> {{ $message }}</span> @enderror
                         </div>

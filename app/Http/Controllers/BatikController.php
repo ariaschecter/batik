@@ -47,7 +47,9 @@ class BatikController extends Controller
     }
 
     public function edit(Category $category, Batik $batik) {
-        return view('admin.batik.edit', compact('category', 'subcategory'));
+        $selected_category = Category::with('sub_category')->findOrFail($category->id)->first();
+        $categories = Category::with('sub_category')->orderBy('category_no', 'ASC')->get();
+        return view('admin.batik.edit', compact('selected_category', 'batik', 'categories'));
     }
 
     public function update(Request $request, Category $category, Batik $batik) {
