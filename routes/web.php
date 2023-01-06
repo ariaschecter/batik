@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,12 +31,21 @@ Route::controller(CityController::class)->group(function () {
 });
 
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('/category/{city:city_slug}', 'index')->name('category.index');
-    Route::get('/category/{city:city_slug}/add', 'create')->name('category.add');
-    Route::post('/category/{city:city_slug}/add', 'store')->name('category.store');
-    Route::get('/category/{city:city_slug}/edit/{category}', 'edit')->name('category.edit');
-    Route::post('/category/{city:city_slug}/edit/{category}', 'update')->name('category.update');
-    Route::get('/category/{city:city_slug}/delete/{category}', 'destroy')->name('category.delete');
+    Route::get('/city/{city:city_slug}', 'index')->name('category.index');
+    Route::get('/city/{city:city_slug}/add', 'create')->name('category.add');
+    Route::post('/city/{city:city_slug}/add', 'store')->name('category.store');
+    Route::get('/city/{city:city_slug}/edit/{category}', 'edit')->name('category.edit');
+    Route::post('/city/{city:city_slug}/edit/{category}', 'update')->name('category.update');
+    Route::get('/city/{city:city_slug}/delete/{category}', 'destroy')->name('category.delete');
+});
+
+Route::controller(SubCategoryController::class)->group(function () {
+    Route::get('/subcategory/{category:category_slug}', 'index')->name('sub.category.index');
+    Route::get('/subcategory/{category:category_slug}/add', 'create')->name('sub.category.add');
+    Route::post('/subcategory/{category:category_slug}/add', 'store')->name('sub.category.store');
+    Route::get('/subcategory/{category:category_slug}/edit/{subcategory}', 'edit')->name('sub.category.edit');
+    Route::post('/subcategory/{category:category_slug}/edit/{subcategory}', 'update')->name('sub.category.update');
+    Route::get('/subcategory/{category:category_slug}/delete/{subcategory}', 'destroy')->name('sub.category.delete');
 });
 
 Route::get('/dashboard', function () {

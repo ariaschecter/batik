@@ -12,45 +12,98 @@
         </div>
         <!-- end page title -->
 
-        <a href="{{ route('category.add', $city->city_slug) }}" class="btn btn-primary mb-2">Add Category</a>
+        {{-- Start Table Category --}}
+        <div>
+            <a href="{{ route('category.add', $city->city_slug) }}" class="btn btn-primary mb-2">Add Category</a>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
 
-                        <h4 class="card-title">All Category</h4>
+                            <h4 class="card-title">All Category</h4>
 
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Category Name</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-
-
-                            <tbody>
-                                @php($i = 1)
-                                @foreach ($categories as $category)
+                            <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead>
                                     <tr>
-                                        <td>{{ $category->category_no }}</td>
-                                        <td>{{ $category->category_name }}</td>
-                                        <td>
-                                            <a href="{{ route('category.edit', [$category->city->city_slug, $category->id]) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('category.delete', [$category->city->city_slug, $category->id]) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
+                                        <th>No</th>
+                                        <th>Category Name</th>
+                                        <th>Action</th>
                                     </tr>
-                                @endforeach
+                                </thead>
 
-                            </tbody>
-                        </table>
 
+                                <tbody>
+                                    @foreach ($categories as $category)
+                                        <tr>
+                                            <td>{{ $category->category_no }}</td>
+                                            <td>{{ $category->category_name }}</td>
+                                            <td>
+                                                <a href="{{ route('sub.category.index', $category->category_slug) }}" class="btn btn-primary sm" title="Show Data"><i class="fas fa-eye"></i></a>
+                                                <a href="{{ route('category.edit', [$category->city->city_slug, $category->id]) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('category.delete', [$category->city->city_slug, $category->id]) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
-                </div>
-            </div> <!-- end col -->
-        </div> <!-- end row -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div>
+        {{-- End Table Category --}}
+
+        {{-- Start Table Sub Category --}}
+        {{-- <div>
+            <a href="{{ route('category.add', $city->city_slug) }}" class="btn btn-primary mb-2">Add Sub Category</a>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">All Sub Category</h4>
+
+                            <table id="alternative-page-datatable" class="table dt-responsive nowrap w-100">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Category Name</th>
+                                        <th>Sub Category Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @php($i = 1)
+                                    @foreach ($categories as $category)
+                                        @foreach ($category->sub_category as $sub)
+                                            <tr>
+                                                <td>{{ $i++ }}</td>
+                                                <td>{{ $category->category_name }}</td>
+                                                <td>{{ $sub->sub_name }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                                    <a href="#" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div> --}}
+        {{-- End Table Sub Category --}}
+
     </div>
 </div>
 @endsection

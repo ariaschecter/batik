@@ -14,4 +14,8 @@ class Category extends Model
     public function city() {
         return $this->belongsTo(City::class, 'city_id');
     }
+
+    public function sub_category() {
+        return $this->hasMany(SubCategory::class, 'category_id', 'id');
+    }
 }
