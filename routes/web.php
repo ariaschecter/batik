@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BatikController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProfileController;
@@ -40,13 +41,23 @@ Route::controller(CategoryController::class)->group(function () {
 });
 
 Route::controller(SubCategoryController::class)->group(function () {
-    Route::get('/subcategory/{category:category_slug}', 'index')->name('sub.category.index');
-    Route::get('/subcategory/{category:category_slug}/add', 'create')->name('sub.category.add');
-    Route::post('/subcategory/{category:category_slug}/add', 'store')->name('sub.category.store');
-    Route::get('/subcategory/{category:category_slug}/edit/{subcategory}', 'edit')->name('sub.category.edit');
-    Route::post('/subcategory/{category:category_slug}/edit/{subcategory}', 'update')->name('sub.category.update');
-    Route::get('/subcategory/{category:category_slug}/delete/{subcategory}', 'destroy')->name('sub.category.delete');
+    Route::get('/category/{category:category_slug}', 'index')->name('sub.category.index');
+    Route::get('/category/{category:category_slug}/add', 'create')->name('sub.category.add');
+    Route::post('/category/{category:category_slug}/add', 'store')->name('sub.category.store');
+    Route::get('/category/{category:category_slug}/edit/{subcategory}', 'edit')->name('sub.category.edit');
+    Route::post('/category/{category:category_slug}/edit/{subcategory}', 'update')->name('sub.category.update');
+    Route::get('/category/{category:category_slug}/delete/{subcategory}', 'destroy')->name('sub.category.delete');
 });
+
+Route::controller(BatikController::class)->group(function () {
+    Route::get('/category/{category:category_slug}/add-batik', 'create')->name('batik.add');
+    Route::post('/api/fetch-sub-category', 'fetch_sub_category');
+    Route::post('/category/{category:category_slug}/add-batik', 'store')->name('batik.store');
+    // Route::get('/category/{category:category_slug}/edit-batik/{batik}', 'edit')->name('batik.edit');
+    // Route::post('/category/{category:category_slug}/edit-batik/{batik}', 'update')->name('batik.update');
+    // Route::get('/category/{category:category_slug}/delete-batik/{batik}', 'destroy')->name('batik.delete');
+});
+
 
 Route::get('/dashboard', function () {
     return view('admin.index');

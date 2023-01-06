@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batik;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class SubCategoryController extends Controller
 {
     public function index(Category $category) {
         $subcategories = SubCategory::with('category')->get();
-        return view('admin.subcategory.index', compact('category', 'subcategories'));
+        $batiks = Batik::with('category', 'sub_category')->orderBy('category_id', 'ASC')->get();
+        return view('admin.subcategory.index', compact('category', 'subcategories', 'batiks'));
     }
 
     public function create(Category $category) {
