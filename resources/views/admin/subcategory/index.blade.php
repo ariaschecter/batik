@@ -47,7 +47,7 @@
                                             <td>
                                                 {{-- <a href="{{ route('sub.category.index', $sub->category_slug) }}" class="btn btn-primary sm" title="Show Data"><i class="fas fa-eye"></i></a> --}}
                                                 <a href="{{ route('batik.edit', [$batik->category->category_slug, $batik->id]) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="{{ route('batik.delete', [$batik->category->category_slug, $batik->id]) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

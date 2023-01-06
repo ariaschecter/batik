@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 class CategoryController extends Controller
 {
     public function index(City $city) {
-        $categories = Category::with('city')->get();
+        $categories = Category::with('city')->where('city_id', $city->id)->get();
         return view('admin.category.index', compact('city', 'categories'));
     }
 

@@ -54,8 +54,8 @@ Route::controller(BatikController::class)->group(function () {
     Route::post('/api/fetch-sub-category', 'fetch_sub_category');
     Route::post('/category/{category:category_slug}/add-batik', 'store')->name('batik.store');
     Route::get('/category/{category:category_slug}/edit-batik/{batik}', 'edit')->name('batik.edit');
-    // Route::post('/category/{category:category_slug}/edit-batik/{batik}', 'update')->name('batik.update');
-    // Route::get('/category/{category:category_slug}/delete-batik/{batik}', 'destroy')->name('batik.delete');
+    Route::post('/category/{category:category_slug}/edit-batik/{batik}', 'update')->name('batik.update');
+    Route::get('/category/{category:category_slug}/delete-batik/{batik}', 'destroy')->name('batik.delete');
 });
 
 

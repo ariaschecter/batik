@@ -32,7 +32,6 @@
                                     </tr>
                                 </thead>
 
-
                                 <tbody>
                                     @foreach ($categories as $category)
                                         <tr>

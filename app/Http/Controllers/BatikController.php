@@ -6,6 +6,7 @@ use App\Models\Batik;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -53,26 +54,41 @@ class BatikController extends Controller
     }
 
     public function update(Request $request, Category $category, Batik $batik) {
-        $validated = $request->validate([
-            'sub_name' => ['required', Rule::unique('sub_categories')->ignore($batik->id, 'id')],
+        $request->validate([
+            'category_id' => 'required',
+            'batik_name' => ['required', Rule::unique('batiks')->ignore($batik->id, 'id')],
+            'batik_picture' => 'file|image|max:5120',
+            'batik_description' => 'required',
         ]);
 
-        $validated['sub_slug'] = Str::slug($request->sub_name);
+        $batik_picture = '';
+        $validated = $request->except(['_token', 'batik_picture']);
+
+        if ($request->batik_picture) {
+            Storage::delete($batik->batik_picture);
+            $batik_picture = $request->file('batik_picture')->store('upload/batik');
+        } else {
+            $batik_picture = $batik->batik_picture;
+        }
+
+        $validated['batik_picture'] = $batik_picture;
+        $validated['batik_slug'] = Str::slug($request->batik_name);
 
         $batik->update($validated);
 
         $notification = [
-            'message' => 'Sub Category Updated Successfully',
+            'message' => 'Batik Updated Successfully',
             'alert-type' => 'success',
         ];
         return redirect()->route('sub.category.index', $category->category_slug)->with($notification);
     }
 
     public function destroy(Category $category, Batik $batik) {
+        Storage::delete($batik->batik_picture);
         $batik->delete();
 
         $notification = [
-            'message' => 'Sub Category ' . $batik->sub_name . ' Deleted Successfully',
+            'message' => 'Batik ' . $batik->batik_name . ' Deleted Successfully',
             'alert-type' => 'success',
         ];
 

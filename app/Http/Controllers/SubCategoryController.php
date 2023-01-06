@@ -12,8 +12,8 @@ use Illuminate\Validation\Rule;
 class SubCategoryController extends Controller
 {
     public function index(Category $category) {
-        $subcategories = SubCategory::with('category')->get();
-        $batiks = Batik::with('category', 'sub_category')->orderBy('category_id', 'ASC')->get();
+        $subcategories = SubCategory::with('category')->where('category_id', $category->id)->get();
+        $batiks = Batik::with('category', 'sub_category')->orderBy('category_id', 'ASC')->where('category_id', $category->id)->get();
         return view('admin.subcategory.index', compact('category', 'subcategories', 'batiks'));
     }
 
