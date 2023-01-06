@@ -31,12 +31,11 @@ Route::controller(CityController::class)->group(function () {
 
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/category/{city:city_slug}', 'index')->name('category.index');
-    // Route::get('/city', 'index')->name('city.index');
-    // Route::get('/city/add', 'create')->name('city.add');
-    // Route::post('/city/add', 'store')->name('city.store');
-    // Route::get('/city/edit/{city}', 'edit')->name('city.edit');
-    // Route::post('/city/edit/{city}', 'update')->name('city.update');
-    // Route::get('/city/delete/{city}', 'destroy')->name('city.delete');
+    Route::get('/category/{city:city_slug}/add', 'create')->name('category.add');
+    Route::post('/category/{city:city_slug}/add', 'store')->name('category.store');
+    Route::get('/category/{city:city_slug}/edit/{category}', 'edit')->name('category.edit');
+    Route::post('/category/{city:city_slug}/edit/{category}', 'update')->name('category.update');
+    Route::get('/category/{city:city_slug}/delete/{category}', 'destroy')->name('category.delete');
 });
 
 Route::get('/dashboard', function () {

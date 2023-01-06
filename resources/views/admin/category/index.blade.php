@@ -12,7 +12,7 @@
         </div>
         <!-- end page title -->
 
-        <a href="{{ route('city.add') }}" class="btn btn-primary mb-2">Add Category</a>
+        <a href="{{ route('category.add', $city->city_slug) }}" class="btn btn-primary mb-2">Add Category</a>
 
         <div class="row">
             <div class="col-12">
@@ -24,7 +24,6 @@
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>No</th>
                                     <th>Category Name</th>
                                     <th>Action</th>
@@ -36,12 +35,11 @@
                                 @php($i = 1)
                                 @foreach ($categories as $category)
                                     <tr>
-                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $category->category_no }}</td>
                                         <td>{{ $category->category_name }}</td>
                                         <td>
-                                            <a href="{{ route('category.index', $category->category_slug) }}" class="btn btn-primary sm" title="Show Data"><i class="fas fa-eye"></i></a>
-                                            {{-- <a href="{{ route('city.edit', $category->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('city.delete', $category->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a> --}}
+                                            <a href="{{ route('category.edit', [$category->city->city_slug, $category->id]) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('category.delete', [$category->city->city_slug, $category->id]) }}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

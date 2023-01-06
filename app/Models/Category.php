@@ -10,4 +10,8 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function city() {
+        return $this->belongsTo(City::class, 'city_id');
+    }
 }
