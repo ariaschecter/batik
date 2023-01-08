@@ -33,7 +33,7 @@
                         <label for="sub_id" class="col-sm-2 col-form-label">Batik Sub Category <span class="badge rounded-pill bg-info float-end">Optional</span></label>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default Select Example" name="sub_id" id="sub_id">
-                                <option selected>Open this select menu</option>
+                                <option value="" selected>-- Select Sub Category / Null --</option>
                                 @foreach ($category->sub_category as $sub)
                                     <option value="{{ $sub->id }}">{{ $sub->sub_name }}</option>
                                 @endforeach

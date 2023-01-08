@@ -25,14 +25,6 @@
             <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
                 <i class="ri-menu-2-line align-middle"></i>
             </button>
-
-            <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
-                <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="ri-search-line"></span>
-                </div>
-            </form>
         </div>
 
         <div class="d-flex">

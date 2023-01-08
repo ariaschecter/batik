@@ -5,21 +5,53 @@
 <div class="page-content">
   <div class="container-fluid">
 
+    <!-- start page title -->
     <div class="row">
-      <div class="col-12">
-          <div class="card">
-              <div class="card-body">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0">Edit Batik</h4>
 
-                <h4 class="card-title">Add City </h4>
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home.batik.index') }}">Batik</a></li>
+                        <li class="breadcrumb-item active">Edit</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
 
-                <form method="post" action="{{ route('batik.update', [$selected_category->category_slug, $batik->id]) }}" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                <h4 class="card-title">Edit Batik </h4>
+
+                <form method="post" action="{{ route('home.batik.update', $batik->id) }}" enctype="multipart/form-data">
                     @csrf
+
+                    <div class="row mb-3">
+                        <label for="city_id" class="col-sm-2 col-form-label">Batik City</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default Select Example" name="city_id" id="city_id">
+                                <option>Open this select menu</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}" {{ ($city->id == $batik->category->city_id ? 'selected' : '') }}>{{ $city->city_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('city_id') <span class="text-danger"> {{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <!-- end row -->
 
                     <div class="row mb-3">
                         <label for="category_id" class="col-sm-2 col-form-label">Batik Category</label>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default Select Example" name="category_id" id="category_id">
-                                <option>Open this select menu</option>
+                                <option value="" >-- Select Category / Null --</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" {{ ($category->id == $batik->category_id ? 'selected' : '') }}>{{ $category->category_name }}</option>
                                 @endforeach
@@ -33,10 +65,12 @@
                         <label for="sub_id" class="col-sm-2 col-form-label">Batik Sub Category <span class="badge rounded-pill bg-info float-end">Optional</span></label>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default Select Example" name="sub_id" id="sub_id">
-                                <option value="">-- Select Sub Category / Null --</option>
-                                @foreach ($selected_category->sub_category as $sub)
-                                    <option value="{{ $sub->id }}" {{ ($sub->id == $batik->sub_id ? 'selected' : '') }}>{{ $sub->sub_name }}</option>
-                                @endforeach
+                                <option value="" >-- Select Sub Category / Null --</option>
+                                @if ($sub_categories)
+                                    @foreach ($sub_categories as $sub)
+                                        <option value="{{ $sub->id }}" {{ ($sub->id == $batik->sub_id ? 'selected' : '') }}>{{ $sub->sub_name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                             @error('sub_id') <span class="text-danger"> {{ $message }}</span> @enderror
                         </div>
@@ -53,7 +87,7 @@
                     <!-- end row -->
 
                     <div class="row mb-3">
-                        <label for="batik_picture" class="col-sm-2 col-form-label">Batik Picture </label>
+                        <label for="batik_picture" class="col-sm-2 col-form-label">Batik Picture</label>
                         <div class="col-sm-10">
                             <input name="batik_picture" class="form-control" type="file"  id="image">
                                 @error('batik_picture') <span class="text-danger"> {{ $message }}</span> @enderror
@@ -80,7 +114,7 @@
                     </div>
                     <!-- end row -->
 
-                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Batik Data">
+                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Category Data">
                   </form>
 
               </div>
@@ -90,7 +124,7 @@
 </div>
 
 <script>
-  $(document).ready(function() {
+    $(document).ready(function() {
     $('#image').change(function(e) {
       const reader = new FileReader();
       reader.onload = function(e) {
@@ -99,16 +133,35 @@
       reader.readAsDataURL(e.target.files['0']);
     })
   })
-</script>
-
-<script>
     $(document).ready(function () {
 
-        /*------------------------------------------
-        --------------------------------------------
-        Country Dropdown Change Event
-        --------------------------------------------
-        --------------------------------------------*/
+    /*------------------------------------------
+    --------------------------------------------
+    Country Dropdown Change Event
+    --------------------------------------------
+    --------------------------------------------*/
+        $('#city_id').on('change', function () {
+            var id_city = this.value;
+            $("#category_id").html('');
+            $.ajax({
+                url: "{{url('api/fetch-category')}}",
+                type: "POST",
+                data: {
+                    city_id: id_city,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#category_id').html('<option value="">-- Select Category --</option>');
+                    $.each(result.categories, function (key, value) {
+                        $("#category_id").append('<option value="' + value
+                            .id + '">' + value.category_name + '</option>');
+                    });
+                    $('#sub_id').html('<option value="">-- Select Sub Category / Null --</option>');
+                }
+            });
+        });
+
         $('#category_id').on('change', function () {
             var id_category = this.value;
             $("#sub_id").html('');
@@ -129,6 +182,7 @@
                 }
             });
         });
+
     });
 </script>
 

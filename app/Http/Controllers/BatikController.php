@@ -33,8 +33,8 @@ class BatikController extends Controller
 
     public function store(Request $request, Category $category) {
         $request->validate([
-            'category_id' => 'required',
-            'batik_name' => 'required|unique:sub_categories,sub_name',
+            'category_id' => 'required|integer',
+            'batik_name' => 'required',
             'batik_picture' => 'required|file|image|max:5120',
             'batik_description' => 'required',
         ]);
@@ -63,7 +63,7 @@ class BatikController extends Controller
     public function update(Request $request, Category $category, Batik $batik) {
         $request->validate([
             'category_id' => 'required',
-            'batik_name' => ['required', Rule::unique('batiks')->ignore($batik->id, 'id')],
+            'batik_name' => ['required'],
             'batik_picture' => 'file|image|max:5120',
             'batik_description' => 'required',
         ]);

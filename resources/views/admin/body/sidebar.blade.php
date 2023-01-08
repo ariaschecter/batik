@@ -52,7 +52,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('city.index') }}" class="waves-effect">
+                    <a href="{{ route('home.batik.index') }}" class="waves-effect">
                         <i class="ri-book-2-line"></i>
                         <span>Batik</span>
                     </a>

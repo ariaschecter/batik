@@ -18,8 +18,7 @@ class HomeSubCategoryController extends Controller
 
     public function create() {
         $cities = City::orderBy('city_name', 'ASC')->get();
-        $categories = Category::orderBy('category_name', 'ASC')->get();
-        return view('admin.home.subcategory.create', compact('cities','categories'));
+        return view('admin.home.subcategory.create', compact('cities'));
     }
 
     public function store(Request $request) {
