@@ -16,13 +16,23 @@
                     @csrf
 
                     <div class="row mb-3">
-                        <label for="category_id" class="col-sm-2 col-form-label">Category</label>
+                        <label for="city_id" class="col-sm-2 col-form-label">Batik City</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default Select Example" id="city_id">
+                                <option selected>Open this select menu</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->city_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('city_id') <span class="text-danger"> {{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mb-3">
+                        <label for="category_id" class="col-sm-2 col-form-label">Batik Category</label>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default Select Example" name="category_id" id="category_id">
-                                <option>Open this select menu</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" {{ ($category->id == old('category_id') ? 'selected' : '') }}>{{ $category->category_name }}</option>
-                                @endforeach
                             </select>
                             @error('category_id') <span class="text-danger"> {{ $message }}</span> @enderror
                         </div>
@@ -50,15 +60,34 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-    $('#image').change(function(e) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        $('#showImage').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(e.target.files['0']);
-    })
-  })
+    $(document).ready(function () {
+
+    /*------------------------------------------
+    --------------------------------------------
+    Country Dropdown Change Event
+    --------------------------------------------
+    --------------------------------------------*/
+        $('#city_id').on('change', function () {
+            var id_city = this.value;
+            $("#category_id").html('');
+            $.ajax({
+                url: "{{url('api/fetch-category')}}",
+                type: "POST",
+                data: {
+                    city_id: id_city,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#category_id').html('<option value="">-- Select Category --</option>');
+                    $.each(result.categories, function (key, value) {
+                        $("#category_id").append('<option value="' + value
+                            .id + '">' + value.category_name + '</option>');
+                    });
+                }
+            });
+        });
+    });
 </script>
 
 @endsection

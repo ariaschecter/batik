@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -16,8 +17,9 @@ class HomeSubCategoryController extends Controller
     }
 
     public function create() {
+        $cities = City::orderBy('city_name', 'ASC')->get();
         $categories = Category::orderBy('category_name', 'ASC')->get();
-        return view('admin.home.subcategory.create', compact('categories'));
+        return view('admin.home.subcategory.create', compact('cities','categories'));
     }
 
     public function store(Request $request) {
@@ -40,8 +42,9 @@ class HomeSubCategoryController extends Controller
     }
 
     public function edit(SubCategory $subcategory) {
-        $categories = Category::orderBy('category_name', 'ASC')->get();
-        return view('admin.home.subcategory.edit', compact('subcategory', 'categories'));
+        $selected_city = City::with('category')->findOrFail($subcategory->category->city_id)->first();
+        $cities = City::orderBy('city_name', 'ASC')->get();
+        return view('admin.home.subcategory.edit', compact('subcategory', 'cities', 'selected_city'));
     }
 
     public function update(Request $request, SubCategory $subcategory) {

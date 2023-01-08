@@ -53,6 +53,7 @@ Route::controller(SubCategoryController::class)->group(function () {
 
 Route::controller(BatikController::class)->group(function () {
     Route::get('/category/{category:category_slug}/add-batik', 'create')->name('batik.add');
+    Route::post('/api/fetch-category', 'fetch_category');
     Route::post('/api/fetch-sub-category', 'fetch_sub_category');
     Route::post('/category/{category:category_slug}/add-batik', 'store')->name('batik.store');
     Route::get('/category/{category:category_slug}/edit-batik/{batik}', 'edit')->name('batik.edit');
