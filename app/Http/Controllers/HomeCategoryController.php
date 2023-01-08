@@ -24,7 +24,7 @@ class HomeCategoryController extends Controller
         $validated = $request->validate([
             'city_id' => 'required|integer',
             'category_no' => 'required|integer',
-            'category_name' => 'required|unique:categories,category_name',
+            'category_name' => 'required',
         ],[
             'city_id.integer' => 'The City field is required.'
         ]);
@@ -49,7 +49,7 @@ class HomeCategoryController extends Controller
         $validated = $request->validate([
             'city_id' => 'required|integer',
             'category_no' => 'required|integer',
-            'category_name' => ['required', Rule::unique('categories')->ignore($category->id, 'id')],
+            'category_name' => 'required',
         ]);
 
         $validated['category_slug'] = Str::slug($request->category_name);

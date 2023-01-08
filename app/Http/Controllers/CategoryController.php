@@ -22,7 +22,7 @@ class CategoryController extends Controller
     public function store(Request $request, City $city) {
         $validated = $request->validate([
             'category_no' => 'required|integer',
-            'category_name' => 'required|unique:categories,category_name',
+            'category_name' => 'required',
         ]);
 
         $validated['city_id'] = $city->id;
@@ -44,7 +44,7 @@ class CategoryController extends Controller
     public function update(Request $request, City $city, Category $category) {
         $validated = $request->validate([
             'category_no' => 'required|integer',
-            'category_name' => ['required', Rule::unique('categories')->ignore($category->id, 'id')],
+            'category_name' => 'required',
         ]);
 
         $validated['category_slug'] = Str::slug($request->category_name);
