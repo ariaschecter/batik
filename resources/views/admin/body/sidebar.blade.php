@@ -32,41 +32,42 @@
 
                 <li>
                     <a href="{{ route('city.index') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i>
+                        <i class="ri-building-line"></i>
                         <span>City</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('home.category.index') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i>
+                        <i class="ri-bookmark-3-line"></i>
                         <span>Category</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('home.subcategory.index') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i>
+                        <i class="ri-bookmark-2-line"></i>
                         <span>Sub Category</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('city.index') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i>
+                        <i class="ri-book-2-line"></i>
                         <span>Batik</span>
                     </a>
                 </li>
 
-                <li class="menu-title">Pages</li>
+                <li class="menu-title">Admin</li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
-                        <span>Blog Category</span>
+                        <span>Users</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">All Blog Category</a></li>
+                        <li><a href="#">User</a></li>
+                        <li><a href="#">Change Password</a></li>
                     </ul>
                 </li>
 
