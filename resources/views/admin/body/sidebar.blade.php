@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('city.index') }}" class="waves-effect">
+                    <a href="{{ route('home.subcategory.index') }}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
                         <span>Sub Category</span>
                     </a>

@@ -4,6 +4,7 @@ use App\Http\Controllers\BatikController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeCategoryController;
+use App\Http\Controllers\HomeSubCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,15 @@ Route::controller(HomeCategoryController::class)->group(function () {
     Route::get('/home/category/edit/{category}', 'edit')->name('home.category.edit');
     Route::post('/home/category/edit/{category}', 'update')->name('home.category.update');
     Route::get('/home/category/delete/{category}', 'destroy')->name('home.category.delete');
+});
+
+Route::controller(HomeSubCategoryController::class)->group(function () {
+    Route::get('/home/subcategory', 'index')->name('home.subcategory.index');
+    Route::get('/home/subcategory/add', 'create')->name('home.subcategory.add');
+    Route::post('/home/subcategory/add', 'store')->name('home.subcategory.store');
+    Route::get('/home/subcategory/edit/{subcategory}', 'edit')->name('home.subcategory.edit');
+    Route::post('/home/subcategory/edit/{subcategory}', 'update')->name('home.subcategory.update');
+    Route::get('/home/subcategory/delete/{subcategory}', 'destroy')->name('home.subcategory.delete');
 });
 
 
