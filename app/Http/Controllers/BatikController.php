@@ -17,8 +17,15 @@ class BatikController extends Controller
         return view('admin.batik.create', compact('categories', 'category'));
     }
 
+    public function fetch_category(Request $request) {
+        $data['categories'] = Category::where('city_id', $request->city_id)->orderBy('category_name', 'ASC')
+                                ->get(['category_name', 'id']);
+
+        return response()->json($data);
+    }
+
     public function fetch_sub_category(Request $request) {
-        $data['sub_categories'] = SubCategory::where('category_id', $request->category_id)
+        $data['sub_categories'] = SubCategory::where('category_id', $request->category_id)->orderBy('sub_name', 'ASC')
                                 ->get(['sub_name', 'id']);
 
         return response()->json($data);
