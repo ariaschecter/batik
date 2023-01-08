@@ -29,7 +29,7 @@ class SubCategoryController extends Controller
         $validated['category_id'] = $category->id;
         $validated['sub_slug'] = Str::slug($request->sub_name);
 
-        SubCategory::insert($validated);
+        SubCategory::create($validated);
 
         $notification = [
             'message' => 'Sub Category ' . $category->category_name .' Inserted Successfully',

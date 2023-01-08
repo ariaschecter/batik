@@ -28,7 +28,7 @@ class CategoryController extends Controller
         $validated['city_id'] = $city->id;
         $validated['category_slug'] = Str::slug($request->category_name);
 
-        Category::insert($validated);
+        Category::create($validated);
 
         $notification = [
             'message' => 'Category ' . $city->city_name .' Inserted Successfully',

@@ -38,7 +38,7 @@ class BatikController extends Controller
         $validated['batik_picture'] = $upload;
         $validated['batik_slug'] = Str::slug($request->batik_name);
 
-        Batik::insert($validated);
+        Batik::create($validated);
 
         $notification = [
             'message' => 'Batik ' . $category->category_name .' Category Inserted Successfully',

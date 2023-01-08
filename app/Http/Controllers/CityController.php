@@ -30,7 +30,7 @@ class CityController extends Controller
         $validated['city_picture'] = $upload;
         $validated['city_slug'] = Str::slug($request->city_name);
 
-        City::insert($validated);
+        City::create($validated);
 
         $notification = [
             'message' => 'City Inserted Successfully',
