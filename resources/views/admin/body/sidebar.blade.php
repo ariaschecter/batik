@@ -37,6 +37,27 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('home.category.index') }}" class="waves-effect">
+                        <i class="ri-dashboard-line"></i>
+                        <span>Category</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('city.index') }}" class="waves-effect">
+                        <i class="ri-dashboard-line"></i>
+                        <span>Sub Category</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('city.index') }}" class="waves-effect">
+                        <i class="ri-dashboard-line"></i>
+                        <span>Batik</span>
+                    </a>
+                </li>
+
                 <li class="menu-title">Pages</li>
 
                 <li>

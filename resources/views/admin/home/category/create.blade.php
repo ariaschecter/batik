@@ -6,22 +6,25 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-12">
-          <div class="card">
-              <div class="card-body">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
 
                 <h4 class="card-title">Add Category </h4>
 
-                <form method="post" action="{{ route('category.store', $city->city_slug) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('home.category.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-3">
                         <label for="city_id" class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-10">
-                            <input name="city_id" class="form-control" type="text" value="{{ $city->city_name }}" id="city_id" readonly>
-                            @error('city_id')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror
+                            <select class="form-select" aria-label="Default Select Example" name="city_id" id="city_id">
+                                <option>Open this select menu</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}" {{ ($city->id == old('city_id') ? 'selected' : '') }}>{{ $city->city_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('city_id') <span class="text-danger"> {{ $message }}</span> @enderror
                         </div>
                     </div>
                     <!-- end row -->
