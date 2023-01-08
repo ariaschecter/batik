@@ -25,12 +25,12 @@ Route::get('/', function () {
 });
 
 Route::controller(CityController::class)->group(function () {
-    Route::get('/city', 'index')->name('city.index');
-    Route::get('/city/add', 'create')->name('city.add');
-    Route::post('/city/add', 'store')->name('city.store');
-    Route::get('/city/edit/{city}', 'edit')->name('city.edit');
-    Route::post('/city/edit/{city}', 'update')->name('city.update');
-    Route::get('/city/delete/{city}', 'destroy')->name('city.delete');
+    Route::get('home/city', 'index')->name('city.index');
+    Route::get('home/city/add', 'create')->name('city.add');
+    Route::post('home/city/add', 'store')->name('city.store');
+    Route::get('home/city/edit/{city}', 'edit')->name('city.edit');
+    Route::post('home/city/edit/{city}', 'update')->name('city.update');
+    Route::get('home/city/delete/{city}', 'destroy')->name('city.delete');
 });
 
 Route::controller(CategoryController::class)->group(function () {
