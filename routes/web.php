@@ -5,11 +5,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeBatikController;
 use App\Http\Controllers\HomeCategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeSubCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubCategoryController;
-use App\Models\Batik;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +22,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $categories = Category::with('batik')->where('city_id', 1)->orderBy('category_no', 'ASC')->get();
-    $last_posts = Batik::orderBy('created_at', 'DESC')->limit(3)->get();
-    return view('frontend.frontend_master', compact('categories', 'last_posts'));
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('frontend.index');
+    Route::get('/city', 'city_index')->name('frontend.city.index');
+    Route::get('/city/{city:city_slug}', 'city_show')->name('frontend.city.show');
+    Route::get('/city/timeline/{city:city_slug}', 'city_show_timeline')->name('frontend.timeline.show');
+    Route::get('/category/{category:category_slug}', 'category_index')->name('frontend.category.index');
+    Route::get('/subcategory/{subcategory:sub_slug}', 'subcategory_index')->name('frontend.subcategory.index');
 });
 
 Route::controller(CityController::class)->group(function () {
@@ -39,31 +41,31 @@ Route::controller(CityController::class)->group(function () {
 });
 
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('/city/{city:city_slug}', 'index')->name('category.index');
-    Route::get('/city/{city:city_slug}/add', 'create')->name('category.add');
-    Route::post('/city/{city:city_slug}/add', 'store')->name('category.store');
-    Route::get('/city/{city:city_slug}/edit/{category}', 'edit')->name('category.edit');
-    Route::post('/city/{city:city_slug}/edit/{category}', 'update')->name('category.update');
-    Route::get('/city/{city:city_slug}/delete/{category}', 'destroy')->name('category.delete');
+    Route::get('/home/city/{city:city_slug}', 'index')->name('category.index');
+    Route::get('/home/city/{city:city_slug}/add', 'create')->name('category.add');
+    Route::post('/home/city/{city:city_slug}/add', 'store')->name('category.store');
+    Route::get('/home/city/{city:city_slug}/edit/{category}', 'edit')->name('category.edit');
+    Route::post('/home/city/{city:city_slug}/edit/{category}', 'update')->name('category.update');
+    Route::get('/home/city/{city:city_slug}/delete/{category}', 'destroy')->name('category.delete');
 });
 
 Route::controller(SubCategoryController::class)->group(function () {
-    Route::get('/category/{category:category_slug}', 'index')->name('sub.category.index');
-    Route::get('/category/{category:category_slug}/add', 'create')->name('sub.category.add');
-    Route::post('/category/{category:category_slug}/add', 'store')->name('sub.category.store');
-    Route::get('/category/{category:category_slug}/edit/{subcategory}', 'edit')->name('sub.category.edit');
-    Route::post('/category/{category:category_slug}/edit/{subcategory}', 'update')->name('sub.category.update');
-    Route::get('/category/{category:category_slug}/delete/{subcategory}', 'destroy')->name('sub.category.delete');
+    Route::get('/home/category/{category:category_slug}', 'index')->name('sub.category.index');
+    Route::get('/home/category/{category:category_slug}/add', 'create')->name('sub.category.add');
+    Route::post('/home/category/{category:category_slug}/add', 'store')->name('sub.category.store');
+    Route::get('/home/category/{category:category_slug}/edit/{subcategory}', 'edit')->name('sub.category.edit');
+    Route::post('/home/category/{category:category_slug}/edit/{subcategory}', 'update')->name('sub.category.update');
+    Route::get('/home/category/{category:category_slug}/delete/{subcategory}', 'destroy')->name('sub.category.delete');
 });
 
 Route::controller(BatikController::class)->group(function () {
-    Route::get('/category/{category:category_slug}/add-batik', 'create')->name('batik.add');
+    Route::get('/home/category/{category:category_slug}/add-batik', 'create')->name('batik.add');
     Route::post('/api/fetch-category', 'fetch_category');
     Route::post('/api/fetch-sub-category', 'fetch_sub_category');
-    Route::post('/category/{category:category_slug}/add-batik', 'store')->name('batik.store');
-    Route::get('/category/{category:category_slug}/edit-batik/{batik}', 'edit')->name('batik.edit');
-    Route::post('/category/{category:category_slug}/edit-batik/{batik}', 'update')->name('batik.update');
-    Route::get('/category/{category:category_slug}/delete-batik/{batik}', 'destroy')->name('batik.delete');
+    Route::post('/home/category/{category:category_slug}/add-batik', 'store')->name('batik.store');
+    Route::get('/home/category/{category:category_slug}/edit-batik/{batik}', 'edit')->name('batik.edit');
+    Route::post('/home/category/{category:category_slug}/edit-batik/{batik}', 'update')->name('batik.update');
+    Route::get('/home/category/{category:category_slug}/delete-batik/{batik}', 'destroy')->name('batik.delete');
 });
 
 Route::controller(HomeCategoryController::class)->group(function () {
@@ -94,7 +96,7 @@ Route::controller(HomeBatikController::class)->group(function () {
 });
 
 
-Route::get('/dashboard', function () {
+Route::get('/home/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
