@@ -8,6 +8,8 @@ use App\Http\Controllers\HomeCategoryController;
 use App\Http\Controllers\HomeSubCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubCategoryController;
+use App\Models\Batik;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $categories = Category::with('batik')->where('city_id', 1)->orderBy('category_no', 'ASC')->get();
+    $last_posts = Batik::orderBy('created_at', 'DESC')->limit(3)->get();
+    return view('frontend.frontend_master', compact('categories', 'last_posts'));
 });
 
 Route::controller(CityController::class)->group(function () {

@@ -18,4 +18,12 @@ class Category extends Model
     public function sub_category() {
         return $this->hasMany(SubCategory::class, 'category_id', 'id')->orderBy('sub_name', 'ASC');
     }
+
+    public function batik() {
+        return $this->hasMany(Batik::class, 'category_id', 'id')->orderBy('created_at', 'DESC');
+    }
+
+    public function batik_most() {
+        return $this->hasMany(Batik::class, 'category_id', 'id')->orderBy('viewed', 'DESC')->limit(1);
+    }
 }

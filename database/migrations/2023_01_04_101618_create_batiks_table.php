@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('batik_slug');
             $table->string('batik_picture');
             $table->text('batik_description');
+            $table->integer('viewed')->default(0);
             $table->timestamps();
         });
     }

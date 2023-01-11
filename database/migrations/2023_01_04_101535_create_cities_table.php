@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('city_name');
             $table->string('city_slug');
             $table->string('city_picture');
+            $table->integer('city_viewed')->default(0);
             $table->timestamps();
         });
     }
