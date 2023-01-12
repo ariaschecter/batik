@@ -29,6 +29,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/city/timeline/{city:city_slug}', 'city_show_timeline')->name('frontend.timeline.show');
     Route::get('/category/{category:category_slug}', 'category_index')->name('frontend.category.index');
     Route::get('/subcategory/{subcategory:sub_slug}', 'subcategory_index')->name('frontend.subcategory.index');
+    Route::get('/batik', 'batik_index')->name('frontend.batik.index');
+    Route::get('/batik/{batik:batik_slug}', 'batik_show')->name('frontend.batik.show');
 });
 
 Route::controller(CityController::class)->group(function () {

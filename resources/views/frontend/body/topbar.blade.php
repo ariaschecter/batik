@@ -30,7 +30,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ route('frontend.batik.index') }}">Batik</a></li>
                 </ul><!-- /.main-nav__navigation-box -->
             </div><!-- /.main-nav__main-navigation -->
             <div class="main-nav__right">

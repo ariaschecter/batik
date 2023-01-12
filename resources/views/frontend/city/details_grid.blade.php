@@ -35,10 +35,9 @@
                                     <a href="{{ route('frontend.subcategory.index', $batik->sub_category->sub_slug) }}">{{ $batik->sub_category->sub_name }}</a>
                                 </div><!-- /.blog-one__date -->
                                 @endif
-                                <a href="#" class="collection-grid__link">+</a><!-- /.collection-grid__link -->
                             </div><!-- /.collection-grid__image -->
                             <div class="collection-grid__content">
-                                <h3><a href="#">{{ $batik->batik_name }}</a></h3>
+                                <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $batik->batik_name }}</a></h3>
                             </div><!-- /.collection-grid__content -->
                         </div><!-- /.collection-grid__single -->
                     </div><!-- /.col-lg-4 -->

@@ -114,7 +114,7 @@
                         <div class="collection-one__single">
                             <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
                             <div class="collection-one__content">
-                                <h3><a href="#link">{{ $batik->batik_name }}</a></h3>
+                                <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $batik->batik_name }}</a></h3>
                             </div><!-- /.collection-one__content -->
                         </div><!-- /.collection-one__single -->
                     </div><!-- /.item -->
@@ -152,7 +152,7 @@
                                 </div><!-- /.blog-one__date -->
                             </div><!-- /.blog-one__image -->
                             <div class="blog-one__content">
-                                <h3><a href="#link">{{ $last_post->batik_name }}</a></h3>
+                                <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $last_post->batik_name }}</a></h3>
                             </div><!-- /.blog-one__content -->
                         </div><!-- /.blog-one__single -->
                     </div><!-- /.col-lg-4 -->
