@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="js">
 
 <head>
     <meta charset="UTF-8">
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/muzex-icons.css') }}">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend/timeline/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/timeline.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
@@ -192,6 +193,9 @@
 
     <!-- Custom Scripts -->
     <script src="{{ asset('frontend/assets/js/theme.js') }}"></script>
+    <script src="{{ asset('frontend/timeline/js/util.js') }}"></script> <!-- util functions included in the CodyHouse framework -->
+    <script src="{{ asset('frontend/timeline/js/swipe-content.js') }}"></script> <!-- A Vanilla JavaScript plugin to detect touch interactions -->
+    <script src="{{ asset('frontend/timeline/js/main.js') }}"></script>
 </body>
 
 </html>

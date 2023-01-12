@@ -16,7 +16,7 @@
             </div><!-- /.block-title-two -->
 
             <ul class="collection-filter post-filter list-unstyled">
-                <li data-filter=".filter-item" class="active"><span>All Category</span></li>
+                <li data-filter=".filter-item" class="active"><span>All Batik</span></li>
                 @foreach ($city->category as $category)
                     <li data-filter=".{{ $category->category_slug }}"><span>{{ $category->category_name }}</span></li>
                 @endforeach

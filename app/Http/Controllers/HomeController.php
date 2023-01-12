@@ -32,6 +32,11 @@ class HomeController extends Controller
         return view('frontend.city.details_grid', compact('city'));
     }
 
+    public function category_index(Category $category) {
+        $category = Category::with('batik', 'sub_category')->findOrFail($category->id);
+        return view('frontend.category.index', compact('category'));
+    }
+
     public function subcategory_index(SubCategory $subcategory) {
         $subcategory = SubCategory::with('batik')->findOrFail($subcategory->id);
         return view('frontend.subcategory.index', compact('subcategory'));

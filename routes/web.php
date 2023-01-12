@@ -96,7 +96,7 @@ Route::controller(HomeBatikController::class)->group(function () {
 });
 
 
-Route::get('/home/dashboard', function () {
+Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
