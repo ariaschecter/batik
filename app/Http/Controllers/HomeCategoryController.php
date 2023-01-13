@@ -29,6 +29,16 @@ class HomeCategoryController extends Controller
             'city_id.integer' => 'The City field is required.'
         ]);
 
+        $category_same = Category::where('city_id', $request->city_id)->where('category_no', $request->category_no)->first();
+
+        if($category_same) {
+            $request->validate([
+                'category_no' => 'required|integer|unique:categories,category_no',
+            ], [
+                'category_no.unique' => 'The Category No has already been taken.'
+            ]);
+        }
+
         $validated['category_slug'] = Str::slug($request->category_name);
 
         Category::create($validated);
@@ -51,6 +61,20 @@ class HomeCategoryController extends Controller
             'category_no' => 'required|integer',
             'category_name' => 'required',
         ]);
+
+        if ($category->city_id == $request->city_id && $category->category_no == $request->category_no) {
+
+        } else {
+            $category_same = Category::where('city_id', $request->city_id)->where('category_no', $request->category_no)->first();
+
+            if($category_same) {
+                $request->validate([
+                    'category_no' => 'required|integer|unique:categories,category_no',
+                ], [
+                    'category_no.unique' => 'The Category No has already been taken.'
+                ]);
+            }
+        }
 
         $validated['category_slug'] = Str::slug($request->category_name);
 

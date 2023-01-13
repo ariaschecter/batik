@@ -3,7 +3,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 <div class="page-content">
-  <div class="container-fluid">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0">{{ $category->category_name }} Category</h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('city.index') }}">City</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('category.index', $category->city->city_slug) }}">{{ $category->city->city_name }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('sub.category.index', $category->category_slug) }}">{{ $category->category_name }}</a></li>
+                            <li class="breadcrumb-item active">Add Sub Category</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
 
     <div class="row">
       <div class="col-12">

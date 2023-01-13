@@ -7,6 +7,15 @@
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">{{ $category->category_name }} Category</h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('city.index') }}">City</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('category.index', $category->city->city_slug) }}">{{ $category->city->city_name }}</a></li>
+                            <li class="breadcrumb-item active">{{ $category->category_name }}</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>

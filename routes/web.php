@@ -72,8 +72,8 @@ Route::controller(BatikController::class)->group(function () {
 
 Route::controller(HomeCategoryController::class)->group(function () {
     Route::get('/home/category', 'index')->name('home.category.index');
-    Route::get('/home/category/add', 'create')->name('home.category.add');
-    Route::post('/home/category/add', 'store')->name('home.category.store');
+    Route::get('/home/category/add/new', 'create')->name('home.category.add');
+    Route::post('/home/category/add/new', 'store')->name('home.category.store');
     Route::get('/home/category/edit/{category}', 'edit')->name('home.category.edit');
     Route::post('/home/category/edit/{category}', 'update')->name('home.category.update');
     Route::get('/home/category/delete/{category}', 'destroy')->name('home.category.delete');
