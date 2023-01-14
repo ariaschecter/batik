@@ -61,14 +61,10 @@
                 <li class="menu-title">Admin</li>
 
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-account-circle-line"></i>
-                        <span>Users</span>
+                    <a href="{{ route('home.user.index') }}" class="waves-effect">
+                        <i class="ri-group-line"></i>
+                        <span>User</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">User</a></li>
-                        <li><a href="#">Change Password</a></li>
-                    </ul>
                 </li>
 
             </ul>
