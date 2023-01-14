@@ -34,6 +34,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/batik/{batik:batik_slug}', 'batik_show')->name('frontend.batik.show');
 });
 
+Route::controller(UserController::class)->group(function () {
+    Route::get('/admin/login', 'login_view')->name('admin.login');
+    Route::post('/admin/login', 'login_store')->name('admin.login.store');
+});
+
 Route::middleware('auth')->group(function () {
     Route::controller(CityController::class)->group(function () {
         Route::get('home/city', 'index')->name('city.index');
@@ -106,6 +111,8 @@ Route::middleware('auth')->group(function () {
         Route::get('home/user/edit/{user}', 'edit')->name('home.user.edit');
         Route::post('home/user/edit/{user}', 'update')->name('home.user.update');
         Route::get('home/user/delete/{user}', 'destroy')->name('home.user.delete');
+
+        Route::get('admin/logout', 'logout')->name('logout');
     });
 
 });
@@ -114,10 +121,4 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth'])->name('admin.dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
