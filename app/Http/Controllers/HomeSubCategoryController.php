@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batik;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -66,6 +68,11 @@ class HomeSubCategoryController extends Controller
     }
 
     public function destroy(SubCategory $subcategory) {
+        $batiks = Batik::where('sub_id', $subcategory->id)->get();
+        foreach ($batiks as $batik) {
+            Storage::delete($batik->batik_picture);
+        }
+        Batik::where('sub_id', $subcategory->id)->delete();
         $subcategory->delete();
 
         $notification = [

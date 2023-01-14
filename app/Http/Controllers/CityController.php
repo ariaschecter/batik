@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batik;
+use App\Models\Category;
 use App\Models\City;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -70,6 +73,15 @@ class CityController extends Controller
     }
 
     public function destroy(City $city) {
+        $categories = Category::where('city_id', $city->id)->get();
+        foreach ($categories as $category) {
+            SubCategory::where('category_id', $category->id)->delete();
+            foreach ($category->batik as $batik) {
+                Storage::delete($batik->batik_picture);
+            }
+            Batik::where('category_id', $category->id)->delete();
+        }
+        Category::where('city_id', $city->id)->delete();
         Storage::delete($city->city_picture);
         $city->delete();
 
