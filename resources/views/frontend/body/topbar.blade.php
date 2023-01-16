@@ -34,7 +34,7 @@
 
                     <div class="main-nav__right">
                         <form action="{{ route('frontend.batik.index') }}" class="search-popup__form">
-                            <input type="text" name="search" placeholder="Search...." value="{{ request()->search ? request()->search : '' }}">
+                            <input type="text" name="search" placeholder="Search Batik ..." value="{{ request()->search ? request()->search : '' }}">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!-- /.main-nav__right -->
