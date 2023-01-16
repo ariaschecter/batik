@@ -63,54 +63,6 @@
         </div>
         {{-- End Table Category --}}
 
-        {{-- Start Table Sub Category --}}
-        {{-- <div>
-            <a href="{{ route('category.add', $city->city_slug) }}" class="btn btn-primary mb-2">Add Sub Category</a>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h4 class="card-title">All Sub Category</h4>
-
-                            <table id="alternative-page-datatable" class="table dt-responsive nowrap w-100">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Category Name</th>
-                                        <th>Sub Category Name</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-
-
-                                <tbody>
-                                    @php($i = 1)
-                                    @foreach ($categories as $category)
-                                        @foreach ($category->sub_category as $sub)
-                                            <tr>
-                                                <td>{{ $i++ }}</td>
-                                                <td>{{ $category->category_name }}</td>
-                                                <td>{{ $sub->sub_name }}</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-        </div> --}}
-        {{-- End Table Sub Category --}}
-
     </div>
 </div>
 @endsection
