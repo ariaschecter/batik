@@ -47,8 +47,12 @@ class HomeController extends Controller
         return view('frontend.city.details_grid', compact('city'));
     }
 
-    public Function batik_index() {
-        $batiks = Batik::with('category.city')->orderBy('created_at', 'DESC')->get();
+    public Function batik_index(Request $request) {
+        if ($request->search) {
+            $batiks = Batik::with('category.city')->where('batik_name', 'LIKE', '%' . $request->search . '%')->orderBy('created_at', 'DESC')->get();
+        } else {
+            $batiks = Batik::with('category.city')->orderBy('created_at', 'DESC')->get();
+        }
         $cities = City::orderBy('city_name', 'ASC')->get();
         return view('frontend.batik.index', compact('batiks', 'cities'));
     }

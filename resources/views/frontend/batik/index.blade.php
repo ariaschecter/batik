@@ -7,6 +7,11 @@
     </div><!-- /.container -->
 </section><!-- /.page-header -->
 
+{{-- <form action="{{ route('frontend.batik.index') }}" method="get">
+<input type="text" name="search" class="form-control">
+<button type="submit" class="form-control">Search</button>
+</form> --}}
+
 <section class="collection-grid">
     <div class="container">
         <div class="collection-grid__top">

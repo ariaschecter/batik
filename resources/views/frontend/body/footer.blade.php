@@ -52,7 +52,7 @@
         <div class="container">
             <div class="inner-container">
                 <p>&copy; Copyright 2020 Muzex. All Rights Reserved</p>
-                <a href="index.html" class="site-footer__bottom-logo">
+                <a href="{{ route('frontend.index') }}" class="site-footer__bottom-logo">
                     <img src="frontend/assets/images/logo-footer-1.png" alt="">
                 </a>
                 <div class="site-footer__bottom-links">

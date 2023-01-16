@@ -6,7 +6,7 @@
     <div class="container">
         <div class="inner-container">
             <div class="logo-box">
-                <a href="index.html">
+                <a href="{{ route('frontend.index') }}">
                     <img src="{{ asset('frontend/assets/images/logo-1-1.png') }}" alt="" width="143">
                 </a>
                 <a href="#" class="side-menu__toggler"><i class="muzex-icon-menu"></i></a>
@@ -31,12 +31,15 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('frontend.batik.index') }}">Batik</a></li>
+
+                    <div class="main-nav__right">
+                        <form action="{{ route('frontend.batik.index') }}" class="search-popup__form">
+                            <input type="text" name="search" placeholder="Search...." value="{{ request()->search ? request()->search : '' }}">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div><!-- /.main-nav__right -->
                 </ul><!-- /.main-nav__navigation-box -->
             </div><!-- /.main-nav__main-navigation -->
-            <div class="main-nav__right">
-                <a href="#" class="search-popup__toggler"><i class="muzex-icon-search"></i></a>
-                <a class="sidemenu-icon side-content__toggler" href="#"><i class="muzex-icon-menu"></i></a>
-            </div><!-- /.main-nav__right -->
         </div><!-- /.inner-container -->
     </div><!-- /.container -->
 </nav><!-- /.main-nav-one -->
