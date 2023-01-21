@@ -34,7 +34,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/batik/{batik:batik_slug}', 'batik_show')->name('frontend.batik.show');
 });
 
-Route::controller(UserController::class)->group(function () {
+Route::middleware('guest')->controller(UserController::class)->group(function () {
     Route::get('/admin/login', 'login_view')->name('admin.login');
     Route::post('/admin/login', 'login_store')->name('admin.login.store');
 });
