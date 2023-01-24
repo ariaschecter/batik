@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Image;
 
 class BatikController extends Controller
 {
@@ -39,7 +40,9 @@ class BatikController extends Controller
             'batik_description' => 'required',
         ]);
 
-        $upload = $request->file('batik_picture')->store('upload/batik');
+        $image = $request->file('batik_picture');
+        $upload = 'upload/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(770, 450)->save('storage/' . $upload);
 
         $validated = $request->except(['_token', 'batik_picture']);
         $validated['batik_picture'] = $upload;
@@ -73,7 +76,9 @@ class BatikController extends Controller
 
         if ($request->batik_picture) {
             Storage::delete($batik->batik_picture);
-            $batik_picture = $request->file('batik_picture')->store('upload/batik');
+            $image = $request->file('batik_picture');
+            $batik_picture = 'upload/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(770, 450)->save('storage/' . $batik_picture);
         } else {
             $batik_picture = $batik->batik_picture;
         }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Image;
 
 class CityController extends Controller
 {
@@ -28,7 +29,10 @@ class CityController extends Controller
             'city_picture' => 'required|file|image|max:5120'
         ]);
 
-        $upload = $request->file('city_picture')->store('upload/city');
+        $image = $request->file('city_picture');
+        $upload = 'upload/city/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(363, 363)->save('storage/' . $upload);
+
 
         $validated['city_picture'] = $upload;
         $validated['city_slug'] = Str::slug($request->city_name);
@@ -54,7 +58,9 @@ class CityController extends Controller
 
         if ($request->city_picture) {
             Storage::delete($city->city_picture);
-            $city_picture = $request->file('city_picture')->store('upload/city');
+            $image = $request->file('city_picture');
+            $city_picture = 'upload/city/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(363, 363)->save('storage/' . $city_picture);
         } else {
             $city_picture = $city->city_picture;
         }
