@@ -1,10 +1,13 @@
+@php
+    $setting = \App\Models\Setting::first();
+@endphp
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="js">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title }} | Batik Explore</title>
+    <title>{{ $title }} | {{ $setting->setting_title }}</title>
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">

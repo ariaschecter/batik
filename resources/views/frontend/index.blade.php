@@ -67,7 +67,7 @@
                     <h3>Explore The Collection</h3>
                 </div><!-- /.block-title -->
                 <div class="more-post__block">
-                    <a class="more-post__link" href="#link">
+                    <a class="more-post__link" href="{{ route('frontend.batik.index') }}">
                         View More
                         <span class="curved-circle">View More &nbsp;&emsp;View More &nbsp;&emsp;View More View More View More &nbsp;&emsp;View &nbsp;&emsp; </span>
                         <!-- /.curved-circle -->
@@ -109,7 +109,7 @@
                     <h3>Latest From Our News</h3>
                 </div><!-- /.block-title -->
                 <div class="more-post__block">
-                    <a class="more-post__link" href="#">
+                    <a class="more-post__link" href="{{ route('frontend.batik.index') }}">
                         All Post
                         <span class="curved-circle">View More &nbsp;&emsp;View More &nbsp;&emsp;View More View More View More &nbsp;&emsp;View &nbsp;&emsp; </span>
                         <!-- /.curved-circle -->

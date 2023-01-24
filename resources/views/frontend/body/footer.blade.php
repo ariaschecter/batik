@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="footer-widget footer-widget__about">
-                        <p>Welcome to the World’s Leading Museum of Modern Art. It in- cludes works of art created during the period stretching. from about 1860 to the 1970s.</p>
+                        <p>{{ $setting->setting_description_footer }}</p>
                     </div><!-- /.footer-widget -->
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-2">
@@ -32,10 +32,9 @@
                 <div class="col-lg-3">
                     <div class="footer-widget footer-widget__contact">
                         <h3 class="footer-widget__title">Contact</h3><!-- /.footer-widget__title -->
-                        <p>Muszex Museums 32 Quincy <br>
-                            Street Cambridge, MA</p>
-                        <p><a href="tel:(617)-495-9400">(617) 495-9400</a></p>
-                        <p><a href="mailto:example@muzex.com">example@muzex.com</a></p>
+                        <p>{{ $setting->setting_address }}</p>
+                        <p><a href="tel:{{ $setting->setting_no_phone }}">{{ $setting->setting_no_phone }}</a></p>
+                        <p><a href="mailto:{{ $setting->setting_email }}">{{ $setting->setting_email }}</a></p>
                     </div><!-- /.footer-widget -->
                 </div><!-- /.col-lg-3 -->
                 <div class="col-lg-3">

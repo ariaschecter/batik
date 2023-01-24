@@ -61,6 +61,13 @@
                 <li class="menu-title">Admin</li>
 
                 <li>
+                    <a href="{{ route('home.setting.index') }}" class="waves-effect">
+                        <i class="ri-settings-4-line"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="{{ route('home.user.index') }}" class="waves-effect">
                         <i class="ri-group-line"></i>
                         <span>User</span>
