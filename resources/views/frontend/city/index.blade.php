@@ -11,8 +11,8 @@
     <div class="container">
         <div class="collection-grid__top">
             <div class="block-title-two text-center">
-                <p>Batik</p>
-                <h3>Explore <br> the City</h3>
+                <p>Galery</p>
+                <h3>Eksplorasi <br> Kota</h3>
             </div><!-- /.block-title-two -->
         </div><!-- /.collection-grid__top -->
         <div class="row high-gutter filter-layout">

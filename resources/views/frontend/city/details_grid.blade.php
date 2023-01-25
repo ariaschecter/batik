@@ -11,12 +11,12 @@
     <div class="container">
         <div class="collection-grid__top">
             <div class="block-title-two text-center">
-                <p>Gallery</p>
-                <h3>Explore <br> the City</h3>
+                <p>Galery</p>
+                <h3>Eksplorasi <br> Kota</h3>
             </div><!-- /.block-title-two -->
 
             <ul class="collection-filter post-filter list-unstyled">
-                <li data-filter=".filter-item" class="active"><span>All Batik</span></li>
+                <li data-filter=".filter-item" class="active"><span>Semua Batik</span></li>
                 @foreach ($city->category as $category)
                     <li data-filter=".{{ $category->category_slug }}"><span>{{ $category->category_name }}</span></li>
                 @endforeach

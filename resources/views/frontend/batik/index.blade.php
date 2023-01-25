@@ -3,7 +3,7 @@
 @section('frontend')
 <section class="page-header" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);">
     <div class="container">
-        <h2>All Batik</h2>
+        <h2>Semua Batik</h2>
     </div><!-- /.container -->
 </section><!-- /.page-header -->
 
@@ -16,12 +16,12 @@
     <div class="container">
         <div class="collection-grid__top">
             <div class="block-title-two text-center">
-                <p>Gallery</p>
-                <h3>Explore <br> the Batik</h3>
+                <p>Galeri</p>
+                <h3>Explorasi <br> Batik</h3>
             </div><!-- /.block-title-two -->
 
             <ul class="collection-filter post-filter list-unstyled">
-                <li data-filter=".filter-item" class="active"><span>All Batik</span></li>
+                <li data-filter=".filter-item" class="active"><span>Batik Semua</span></li>
                 @foreach ($cities as $city)
                     <li data-filter=".{{ $city->city_slug }}"><span>{{ $city->city_name }}</span></li>
                 @endforeach

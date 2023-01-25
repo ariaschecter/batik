@@ -27,8 +27,8 @@
               </div> <!-- .cd-h-timeline__dates -->
 
               <ul>
-                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive">Prev</a></li>
-                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next">Next</a></li>
+                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive">Sebelum</a></li>
+                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next">Sesudah</a></li>
               </ul>
             </div> <!-- .cd-h-timeline__container -->
 
@@ -63,13 +63,13 @@
         <div class="container">
             <div class="collection-one__top">
                 <div class="block-title">
-                    <p>Gallery</p>
-                    <h3>Explore The Collection</h3>
+                    <p>Galeri</p>
+                    <h3>Eksplorasi Koleksi Batik</h3>
                 </div><!-- /.block-title -->
                 <div class="more-post__block">
                     <a class="more-post__link" href="{{ route('frontend.batik.index') }}">
-                        View More
-                        <span class="curved-circle">View More &nbsp;&emsp;View More &nbsp;&emsp;View More View More View More &nbsp;&emsp;View &nbsp;&emsp; </span>
+                        Lainnya
+                        <span class="curved-circle">Lainnya &nbsp;&emsp;Lainnya &nbsp;&emsp;Lainnya Lainnya Lainnya &nbsp;&emsp; Lainnya &nbsp;&emsp; Lainnya</span>
                         <!-- /.curved-circle -->
                     </a>
                 </div><!-- /.more-post__block -->
@@ -110,8 +110,8 @@
                 </div><!-- /.block-title -->
                 <div class="more-post__block">
                     <a class="more-post__link" href="{{ route('frontend.batik.index') }}">
-                        All Post
-                        <span class="curved-circle">View More &nbsp;&emsp;View More &nbsp;&emsp;View More View More View More &nbsp;&emsp;View &nbsp;&emsp; </span>
+                        Semua Postingan
+                        <span class="curved-circle">Semua Postingan &nbsp;&emsp;Semua Postingan &nbsp;&emsp;Semua Postingan &nbsp;&emsp; Semua &nbsp;&emsp;</span>
                         <!-- /.curved-circle -->
                     </a>
                 </div><!-- /.more-post__block -->

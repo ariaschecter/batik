@@ -29,7 +29,7 @@
                         </form>
                     </div><!-- /.sidebar__single --> --}}
                     <div class="sidebar__single">
-                        <h3 class="sidebar__title">Categories</h3>
+                        <h3 class="sidebar__title">Kategori</h3>
 
                         <ul class="list-unstyled sidebar__cat-list">
                             @foreach ($categories as $category)
@@ -39,7 +39,7 @@
                         </ul><!-- /.list-unstyled sidebar__cat-list -->
                     </div><!-- /.sidebar__single -->
                     <div class="sidebar__single">
-                        <h3 class="sidebar__title">Latest News</h3>
+                        <h3 class="sidebar__title">Postingan Terakhir</h3>
                         <div class="sidebar__post">
                             @foreach ($batiks as $batik)
                                 <div class="sidebar__post-single">

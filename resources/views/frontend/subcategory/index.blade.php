@@ -12,7 +12,7 @@
         <div class="collection-grid__top">
             <div class="block-title-two text-center">
                 <p>Batik</p>
-                <h3>Explore <br> the Sub Category</h3>
+                <h3>Eksplorasi <br> Sub Kategori</h3>
             </div><!-- /.block-title-two -->
         </div><!-- /.collection-grid__top -->
         <div class="row high-gutter filter-layout">

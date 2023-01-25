@@ -13,9 +13,9 @@
             </div><!-- /.logo-box -->
             <div class="main-nav__main-navigation">
                 <ul class="main-nav__navigation-box">
-                    <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                    <li><a href="{{ route('frontend.index') }}">Beranda</a></li>
                     <li class="dropdown">
-                        <a href="{{ route('frontend.city.index') }}">City</a>
+                        <a href="{{ route('frontend.city.index') }}">Kota</a>
                         <ul>
                             @foreach ($citytopbar as $citytop)
                                 <li><a href="{{ route('frontend.city.show', $citytop->city_slug) }}">{{ $citytop->city_name }}</a></li>
@@ -23,7 +23,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Timeline City</a>
+                        <a href="#">Timeline Batik (Kota)</a>
                         <ul>
                             @foreach ($citytopbar as $citytop)
                                 <li><a href="{{ route('frontend.timeline.show', $citytop->city_slug) }}">{{ $citytop->city_name }}</a></li>
