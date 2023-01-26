@@ -66,7 +66,7 @@
                     </div>
                     <!-- end row -->
 
-                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Category Data">
+                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Category Data">
                   </form>
 
               </div>

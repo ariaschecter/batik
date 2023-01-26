@@ -107,7 +107,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::controller(SettingController::class)->group(function () {
         Route::get('/setting', 'index')->name('home.setting.index');
-        Route::get('/setting/{setting}', 'store')->name('home.setting.store');
+        Route::post('/setting/{setting}', 'store')->name('home.setting.store');
     });
 
 

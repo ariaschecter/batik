@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('setting_description_footer')->default('Welcome to the World’s Museum of Modern Art. It in- cludes works of art created during the period stretching. from about 1860 to the 1970s.');
             $table->string('setting_no_phone')->default('0812 3454 3212');
             $table->string('setting_email')->default('email@gmail.com');
+            $table->string('setting_banner')->default('upload/setting/banner.jpg');
             $table->timestamps();
         });
     }

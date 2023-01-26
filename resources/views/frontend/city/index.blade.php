@@ -1,9 +1,12 @@
 @extends('frontend.frontend_master')
 
 @section('frontend')
-<section class="page-header" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);">
+@php
+    $setting = \App\Models\Setting::first();
+@endphp
+<section class="page-header" style="background-image: url({{ asset('storage/' . $setting->setting_banner) }});">
     <div class="container">
-        <h2>All City</h2>
+        <h2>Semua Kota</h2>
     </div><!-- /.container -->
 </section><!-- /.page-header -->
 

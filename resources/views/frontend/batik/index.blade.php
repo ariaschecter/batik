@@ -1,7 +1,10 @@
 @extends('frontend.frontend_master')
 
 @section('frontend')
-<section class="page-header" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);">
+@php
+    $setting = \App\Models\Setting::first();
+@endphp
+<section class="page-header" style="background-image: url({{ asset('storage/' . $setting->setting_banner) }});">
     <div class="container">
         <h2>Semua Batik</h2>
     </div><!-- /.container -->
@@ -21,7 +24,7 @@
             </div><!-- /.block-title-two -->
 
             <ul class="collection-filter post-filter list-unstyled">
-                <li data-filter=".filter-item" class="active"><span>Batik Semua</span></li>
+                <li data-filter=".filter-item" class="active"><span>Semua Batik</span></li>
                 @foreach ($cities as $city)
                     <li data-filter=".{{ $city->city_slug }}"><span>{{ $city->city_name }}</span></li>
                 @endforeach

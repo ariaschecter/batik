@@ -99,7 +99,7 @@
                     </div>
                     <!-- end row -->
 
-                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Batik Data">
+                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Batik Data">
                   </form>
 
               </div>
