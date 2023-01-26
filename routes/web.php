@@ -36,7 +36,7 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::middleware('guest')->controller(UserController::class)->group(function () {
-    Route::get('/admin/login', 'login_view')->name('admin.login');
+    Route::get('/admin/login', 'login_view')->name('login');
     Route::post('/admin/login', 'login_store')->name('admin.login.store');
 });
 
@@ -70,8 +70,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::controller(BatikController::class)->group(function () {
         Route::get('/category/{category:category_slug}/add-batik', 'create')->name('batik.add');
-        Route::post('/api/fetch-category', 'fetch_category');
-        Route::post('/api/fetch-sub-category', 'fetch_sub_category');
         Route::post('/category/{category:category_slug}/add-batik', 'store')->name('batik.store');
         Route::get('/category/{category:category_slug}/edit-batik/{batik}', 'edit')->name('batik.edit');
         Route::post('/category/{category:category_slug}/edit-batik/{batik}', 'update')->name('batik.update');
@@ -122,6 +120,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('admin/logout', 'logout')->name('logout');
     });
 
+});
+
+Route::controller(BatikController::class)->group(function () {
+    Route::post('/api/fetch-category', 'fetch_category');
+    Route::post('/api/fetch-sub-category', 'fetch_sub_category');
 });
 
 Route::get('/dashboard', function () {
