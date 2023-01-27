@@ -7,10 +7,12 @@ use App\Http\Controllers\HomeBatikController;
 use App\Http\Controllers\HomeCategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeSubCategoryController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UserController;
+use App\Models\Batik;
+use App\Models\Category;
+use App\Models\City;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,8 +45,8 @@ Route::middleware('guest')->controller(UserController::class)->group(function ()
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::controller(CityController::class)->group(function () {
         Route::get('/city', 'index')->name('city.index');
-        Route::get('/city/add', 'create')->name('city.add');
-        Route::post('/city/add', 'store')->name('city.store');
+        Route::get('/city/add_city', 'create')->name('city.add');
+        Route::post('/city/add_city', 'store')->name('city.store');
         Route::get('/city/edit/{city}', 'edit')->name('city.edit');
         Route::post('/city/edit/{city}', 'update')->name('city.update');
         Route::get('/city/delete/{city}', 'destroy')->name('city.delete');
@@ -110,13 +112,14 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
 
     Route::controller(UserController::class)->group(function () {
-        Route::get('home/user', 'index')->name('home.user.index');
-        Route::get('home/user/add', 'create')->name('home.user.add');
-        Route::post('home/user/add', 'store')->name('home.user.store');
-        Route::get('home/user/edit/{user}', 'edit')->name('home.user.edit');
-        Route::post('home/user/edit/{user}', 'update')->name('home.user.update');
-        Route::get('home/user/delete/{user}', 'destroy')->name('home.user.delete');
-
+        Route::get('/user', 'index')->name('home.user.index');
+        Route::get('/user/add', 'create')->name('home.user.add');
+        Route::post('/user/add', 'store')->name('home.user.store');
+        Route::get('/user/edit/{user}', 'edit')->name('home.user.edit');
+        Route::post('/user/edit/{user}', 'update')->name('home.user.update');
+        Route::get('/user/delete/{user}', 'destroy')->name('home.user.delete');
+        Route::get('profile', 'profile')->name('profile');
+        Route::post('profile/{user}', 'profile_update')->name('profile.update');
         Route::get('admin/logout', 'logout')->name('logout');
     });
 
@@ -128,7 +131,11 @@ Route::controller(BatikController::class)->group(function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.index');
+    $batiks = Batik::orderBy('viewed', 'DESC')->get();
+    $cities = count(City::all());
+    $categories = count(Category::all());
+    $total_view = Batik::sum('viewed');
+    return view('admin.index', compact('batiks', 'cities', 'categories', 'total_view'));
 })->middleware(['auth'])->name('admin.dashboard');
 
 // require __DIR__.'/auth.php';

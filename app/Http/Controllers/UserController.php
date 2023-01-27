@@ -76,6 +76,37 @@ class UserController extends Controller
         ])->onlyInput('email');
     }
 
+    public function profile() {
+        $user = Auth::user();
+        return view('admin.profile', compact('user'));
+    }
+
+    public function profile_update(Request $request, User $user) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email,'. $user->id,
+        ]);
+
+        $update = $request->only(['name', 'email']);
+
+        if ($request->password) {
+            $request->validate([
+                'password' => 'min:8',
+                'confirm_password' => 'same:password',
+            ]);
+            $update['password'] = bcrypt($request->password);
+        }
+
+        $user->update($update);
+
+        $notification = [
+            'message' => 'Profile Updated Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->back()->with($notification);
+    }
+
     public function logout(Request $request) {
         Auth::logout();
 

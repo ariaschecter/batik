@@ -3,21 +3,12 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-sm" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="logo-dark" height="20">
-                    </span>
-                </a>
-
                 <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-sm-light" height="22">
+                        <img src="{{ asset('frontend/assets/images/favicon/icon.jpg') }}" alt="logo-sm-light" height="40">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="logo-light" height="20">
+                        <img src="{{ asset('backend/assets/images/logo.jpg') }}" alt="logo-light" height="75">
                     </span>
                 </a>
             </div>
@@ -45,6 +36,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
+                    <a class="dropdown-item d-block" href="{{ route('profile') }}"><i class=" ri-user-line align-middle me-1"></i> Profile</a>
                     <a class="dropdown-item d-block" href="{{ route('logout') }}"><i class="ri-logout-box-r-line align-middle me-1"></i> Logout</a>
                 </div>
             </div>

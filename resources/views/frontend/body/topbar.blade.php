@@ -7,7 +7,7 @@
         <div class="inner-container">
             <div class="logo-box">
                 <a href="{{ route('frontend.index') }}">
-                    <img src="{{ asset('frontend/assets/images/logo-1-1.png') }}" alt="" width="143">
+                    <img src="{{ asset('frontend/assets/images/logo.jpg') }}" alt="" width="143">
                 </a>
                 <a href="#" class="side-menu__toggler"><i class="muzex-icon-menu"></i></a>
             </div><!-- /.logo-box -->

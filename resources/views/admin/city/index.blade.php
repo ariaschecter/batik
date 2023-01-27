@@ -46,7 +46,11 @@
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $city->city_name }}</td>
-                                        <td><img src="{{ asset('storage/' . $city->city_picture) }}" alt="city picture" style="width: 50px; height: 50px"></td>
+                                        <td>
+                                            <a href="{{ asset('storage/' . $city->city_picture) }}" class="image-popup-no-margins">
+                                                <img src="{{ asset('storage/' . $city->city_picture) }}" alt="city picture" style="width: 50px; height: 50px">
+                                            </a>
+                                        </td>
                                         <td>
                                             <a href="{{ route('category.index', $city->city_slug) }}" class="btn btn-primary sm" title="Show Data"><i class="fas fa-eye"></i></a>
                                             <a href="{{ route('city.edit', $city->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>

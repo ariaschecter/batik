@@ -49,7 +49,11 @@
                                     @foreach ($batiks as $batik)
                                         <tr>
                                             <td>{{ $i++ }}</td>
-                                            <td><img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture" style="width: 50px; height: 50px"></td>
+                                            <td>
+                                                <a href="{{ asset('storage/' . $batik->batik_picture) }}" class="image-popup-no-margins">
+                                                    <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture" style="width: 50px; height: 50px">
+                                                </a>
+                                            </td>
                                             <td>{{ $batik->category->category_name }}</td>
                                             <td>{{ ($batik->sub_category == null ? 'Null' : $batik->sub_category->sub_name) }}</td>
                                             <td>{{ $batik->batik_name }}</td>

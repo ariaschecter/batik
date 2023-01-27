@@ -10,7 +10,7 @@
         <meta content="Themesdesign" name="author" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon/icon.jpg') }}">
 
         <!-- jquery.vectormap css -->
         <link href="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
@@ -27,6 +27,8 @@
         <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Lightbox css -->
+        <link href="{{ asset('backend/assets/libs/magnific-popup/magnific-popup.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
         {{-- Tags Input --}}
@@ -113,6 +115,12 @@
         <!-- Required datatable js -->
         <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+
+        <!-- Magnific Popup-->
+        <script src="{{ asset('backend/assets/libs/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+        <!-- lightbox init js-->
+        <script src="{{ asset('backend/assets/js/pages/lightbox.init.js') }}"></script>
         <!-- Datatable init js -->
         <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
