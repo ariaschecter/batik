@@ -4,11 +4,9 @@
 @php
     $setting = \App\Models\Setting::first();
 @endphp
-<section class="page-header" style="background-image: url({{ asset('storage/' . $setting->setting_banner) }});">
     <div class="container">
-        <h2>Timeline : {{ $city->city_name }}</h2>
+        <h2 class="text-center">Daur Hidup Batik Khas {{ $city->city_name }}</h2>
     </div><!-- /.container -->
-</section><!-- /.page-header -->
 
     <!-- Banner Section -->
     <section class="banner-section">
@@ -43,10 +41,17 @@
                     $i++;
                 ?>
                 <li class="cd-h-timeline__event {{ $i == 2 ? 'cd-h-timeline__event--selected' : '' }} text-component">
-                  <div class="cd-h-timeline__event-content container">
-                    <a href="{{ route('frontend.category.index', $category->category_slug) }}"><h2 class="cd-h-timeline__event-title">{{ $category->category_name }}</h2></a>
+                  <div class="container">
+                    <a href="{{ route('frontend.category.index', $category->category_slug) }}"><h2 class="cd-h-timeline__event-title text-center">{{ $category->category_name }}</h2></a>
                     @if ($batik)
-                        <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-12 col-sm-12">
+                                <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12">
+                                {!! Str::of($batik->batik_description)->limit(500) !!}
+                            </div>
+                        </div>
                     @else
                         <h3 class="block-title-one text-center">Data Batik Masih Kosong</h3>
                     @endif

@@ -32,11 +32,6 @@
                     <div class="collection-grid__single">
                         <div class="collection-grid__image">
                             <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
-                            @if ($batik->sub_category)
-                            <div class="blog-one__date">
-                                <a href="{{ route('frontend.subcategory.index', $batik->sub_category->sub_slug) }}">{{ $batik->sub_category->sub_name }}</a>
-                            </div><!-- /.blog-one__date -->
-                            @endif
                             <a href="#" class="collection-grid__link">+</a><!-- /.collection-grid__link -->
                         </div><!-- /.collection-grid__image -->
                         <div class="collection-grid__content">

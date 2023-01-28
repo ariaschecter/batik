@@ -107,19 +107,18 @@
         </div><!-- /.search-popup__inner -->
     </div><!-- /.search-popup -->
 
-    <div class="side-content__block">
+    {{-- <div class="side-content__block">
         <div class="side-content__block-overlay custom-cursor__overlay">
             <div class="cursor"></div>
             <div class="cursor-follower"></div>
         </div><!-- /.side-content__block-overlay -->
         <div class="side-content__block-inner ">
             <a href="index.html">
-                <img src="frontend/assets/images/logo-1-1.png" alt="" width="143">
+                <img src="{{ asset('frontend/assets/images/logo.jpg') }}" alt="" width="143">
             </a>
             <div class="side-content__block-about">
                 <h3 class="side-content__block__title">About Us</h3><!-- /.side-content__block__title -->
-                <p class="side-content__block-about__text">We must explain to you how all seds this mistakens idea off denouncing pleasures and praising pain was born and I will give you a completed accounts off the system and </p><!-- /.side-content__block-about__text -->
-                <a href="#" class="thm-btn side-content__block-about__btn">Get Consultation</a>
+                <p class="side-content__block-about__text">{{ $setting->setting_description_footer }}</p><!-- /.side-content__block-about__text -->
             </div><!-- /.side-content__block-about -->
             <hr class="side-content__block-line" />
             <div class="side-content__block-contact">
@@ -127,11 +126,11 @@
                 <ul class="side-content__block-contact__list">
                     <li class="side-content__block-contact__list-item">
                         <i class="fa fa-map-marker"></i>
-                        Rock St 12, Newyork City, USA
+                        {{ $setting->setting_address }}
                     </li><!-- /.side-content__block-contact__list-item -->
                     <li class="side-content__block-contact__list-item">
                         <i class="fa fa-phone"></i>
-                        <a href="tel:526-236-895-4732">(526) 236-895-4732</a>
+                        <a href="tel:{{ $setting->setting_no_phone }}">{{ $setting->setting_no_phone }}</a>
                     </li><!-- /.side-content__block-contact__list-item -->
                     <li class="side-content__block-contact__list-item">
                         <i class="fa fa-envelope"></i>
@@ -143,9 +142,9 @@
                     </li><!-- /.side-content__block-contact__list-item -->
                 </ul><!-- /.side-content__block-contact__list -->
             </div><!-- /.side-content__block-contact -->
-            <p class="side-content__block__text site-footer__copy-text"><a href="#">Muzex</a> <i class="fa fa-copyright"></i> 2020 All Right Reserved</p>
+            <p class="side-content__block__text site-footer__copy-text"><a href="#">{{ $setting->setting_title }}</a> <i class="fa fa-copyright"></i> {{ date('Y') }} All Right Reserved</p>
         </div><!-- /.side-content__block-inner -->
-    </div><!-- /.side-content__block -->
+    </div><!-- /.side-content__block --> --}}
 
     <div class="side-menu__block">
 
@@ -158,11 +157,11 @@
         </div><!-- /.side-menu__block-overlay -->
         <div class="side-menu__block-inner ">
 
-            <a href="index.html" class="side-menu__logo"><img src="frontend/assets/images/logo-light-1-1.png" alt="" width="143"></a>
+            <a href="{{ route('frontend.index') }}" class="side-menu__logo"><img src="{{ asset('frontend/assets/images/logo.jpg') }}" alt="" width="143"></a>
             <nav class="mobile-nav__container">
                 <!-- content is loading via js -->
             </nav>
-            <p class="side-menu__block__copy">(c) 2020 <a href="#">Muzex</a> - All rights reserved.</p>
+            <p class="side-menu__block__copy">(c) {{ date('Y') }} <a href="{{ route('frontend.index') }}">{{ $setting->setting_title }}</a> - All rights reserved.</p>
             <div class="side-menu__social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus"></i></a>

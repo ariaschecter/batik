@@ -15,15 +15,7 @@
                 <ul class="main-nav__navigation-box">
                     <li><a href="{{ route('frontend.index') }}">Beranda</a></li>
                     <li class="dropdown">
-                        <a href="{{ route('frontend.city.index') }}">Kota</a>
-                        <ul>
-                            @foreach ($citytopbar as $citytop)
-                                <li><a href="{{ route('frontend.city.show', $citytop->city_slug) }}">{{ $citytop->city_name }}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Timeline Batik (Kota)</a>
+                        <a href="#">Daur Hidup Batik</a>
                         <ul>
                             @foreach ($citytopbar as $citytop)
                                 <li><a href="{{ route('frontend.timeline.show', $citytop->city_slug) }}">{{ $citytop->city_name }}</a></li>
@@ -34,7 +26,7 @@
 
                     <div class="main-nav__right">
                         <form action="{{ route('frontend.batik.index') }}" class="search-popup__form">
-                            <input type="text" name="search" placeholder="Search Batik ..." value="{{ request()->search ? request()->search : '' }}">
+                            <input type="text" name="search" placeholder="Search ..." value="{{ request()->search ? request()->search : '' }}">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!-- /.main-nav__right -->

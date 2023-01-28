@@ -9,7 +9,7 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon/icon.jpg') }}">
 
         <!-- Bootstrap Css -->
         <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -30,9 +30,9 @@
 
                         <div class="text-center mt-4">
                             <div class="mb-3">
-                                <a href="index.html" class="auth-logo">
-                                    <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
+                                <a href="{{ route('frontend.index') }}" class="auth-logo">
+                                    <img src="{{ asset('backend/assets/images/logo.jpg') }}" class="logo-dark mx-auto" alt="">
+                                    <img src="{{ asset('backend/assets/images/logo.jpg') }}" class="logo-light mx-auto" alt="">
                                 </a>
                             </div>
                         </div>
@@ -51,15 +51,6 @@
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <input class="form-control" id="password" name="password" type="password" required="" placeholder="Password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="remember_me">
-                                            <label class="form-label ms-1" for="remember_me" name="remember">Remember me</label>
-                                        </div>
                                     </div>
                                 </div>
 
