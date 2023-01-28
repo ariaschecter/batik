@@ -68,8 +68,8 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('home.user.index') }}" class="waves-effect">
-                        <i class="ri-group-line"></i>
+                    <a href="{{ route('home.team.index') }}" class="waves-effect">
+                        <i class="ri-team-line"></i>
                         <span>Team</span>
                     </a>
                 </li>

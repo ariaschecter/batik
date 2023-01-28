@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeSubCategoryController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Models\Batik;
 use App\Models\Category;
@@ -30,8 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('frontend.index');
     Route::get('/city', 'city_index')->name('frontend.city.index');
-    Route::get('/city/{city:city_slug}', 'city_show')->name('frontend.city.show');
-    Route::get('/city/timeline/{city:city_slug}', 'city_show_timeline')->name('frontend.timeline.show');
+    Route::get('/city/{city:city_slug}', 'city_show_timeline')->name('frontend.timeline.show');
     Route::get('/category/{category:category_slug}', 'category_index')->name('frontend.category.index');
     Route::get('/subcategory/{subcategory:sub_slug}', 'subcategory_index')->name('frontend.subcategory.index');
     Route::get('/batik', 'batik_index')->name('frontend.batik.index');
@@ -118,6 +118,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/brand/edit/{brand}', 'edit')->name('home.brand.edit');
         Route::post('/brand/edit/{brand}', 'update')->name('home.brand.update');
         Route::get('/brand/delete/{brand}', 'destroy')->name('home.brand.delete');
+    });
+
+    Route::controller(TeamController::class)->group(function () {
+        Route::get('/team', 'index')->name('home.team.index');
+        Route::get('/team/add', 'create')->name('home.team.add');
+        Route::post('/team/add', 'store')->name('home.team.store');
+        Route::get('/team/edit/{team}', 'edit')->name('home.team.edit');
+        Route::post('/team/edit/{team}', 'update')->name('home.team.update');
+        Route::get('/team/delete/{team}', 'destroy')->name('home.team.delete');
     });
 
 

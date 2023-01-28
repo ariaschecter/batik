@@ -108,7 +108,33 @@
     </section><!-- /.collection-one -->
 
 
-    <section class="blog-one">
+    <section class="team-one">
+        <div class="container">
+            <div class="block-title-two text-center">
+                <h3>Pengembang</h3>
+            </div><!-- /.block-title-two -->
+            <div class="row">
+                @foreach ($teams as $team)
+                <div class="col-lg-4">
+                    <div class="team-one__single">
+                        <div class="team-one__image">
+                            <img src="{{ asset('storage/' . $team->team_picture) }}" alt="">
+                        </div><!-- /.team-one__image -->
+                        <div class="team-one__content">
+                            <h3>{{ $team->team_name }}</h3>
+                            <p>{{ $team->team_positition }}</p>
+                        </div><!-- /.team-one__content -->
+                    </div><!-- /.team-one__single -->
+                </div><!-- /.col-lg-4 -->
+                @endforeach
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.team-one -->
+
+
+
+    <section class="brand-one">
         <div class="container">
             <div class="brand-one__carousel thm__owl-carousel owl-carousel owl-theme" data-options='{"items": 5, "margin": 150, "smartSpeed": 700, "loop": true, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": false, "nav": false, "dots": false, "responsive": {"0": { "margin": 20, "items": 2 }, "575": { "margin": 30, "items": 3 },"767": { "margin": 40, "items": 4 },   "991": { "margin": 70, "items": 4 }, "1199": { "margin": 150, "items": 5 } } }'>
                 @foreach ($brands as $brand)

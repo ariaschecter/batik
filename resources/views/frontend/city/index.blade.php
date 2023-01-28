@@ -26,7 +26,7 @@
                             <img src="{{ asset('storage/' . $city->city_picture) }}" alt="{{ $city->city_name }} Picture">
                         </div><!-- /.collection-grid__image -->
                         <div class="collection-grid__content">
-                            <h3><a href="{{ route('frontend.city.show', $city->city_slug) }}">{{ $city->city_name }}</a></h3>
+                            <h3><a href="{{ route('frontend.timeline.show', $city->city_slug) }}">{{ $city->city_name }}</a></h3>
                         </div><!-- /.collection-grid__content -->
                     </div><!-- /.collection-grid__single -->
                 </div><!-- /.col-lg-4 -->

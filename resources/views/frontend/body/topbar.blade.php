@@ -15,7 +15,7 @@
                 <ul class="main-nav__navigation-box">
                     <li><a href="{{ route('frontend.index') }}">Beranda</a></li>
                     <li class="dropdown">
-                        <a href="#">Daur Hidup Batik</a>
+                        <a href="{{ route('frontend.city.index') }}">Daur Hidup Batik</a>
                         <ul>
                             @foreach ($citytopbar as $citytop)
                                 <li><a href="{{ route('frontend.timeline.show', $citytop->city_slug) }}">{{ $citytop->city_name }}</a></li>

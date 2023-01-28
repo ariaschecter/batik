@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Batik;
 use App\Models\Brand;
 use App\Models\SubCategory;
+use App\Models\Team;
 
 class HomeController extends Controller
 {
@@ -16,13 +17,14 @@ class HomeController extends Controller
         $categories = Category::with('batik')->where('city_id', $city->id)->orderBy('category_no', 'ASC')->get();
         $last_posts = Batik::orderBy('created_at', 'DESC')->limit(3)->get();
         $brands = Brand::all();
-        $title = 'Home';
-        return view('frontend.index', compact('categories', 'last_posts', 'city', 'title', 'brands'));
+        $teams = Team::all();
+        $title = 'Beranda';
+        return view('frontend.index', compact('categories', 'last_posts', 'city', 'title', 'brands', 'teams'));
     }
 
     public function city_index() {
         $cities = City::orderBy('city_name', 'ASC')->get();
-        $title = 'All City';
+        $title = 'Semua Kota';
         return view('frontend.city.index', compact('cities', 'title'));
     }
 
@@ -30,12 +32,6 @@ class HomeController extends Controller
         $title = $city->city_name;
         $categories = Category::with('batik')->where('city_id', $city->id)->orderBy('category_no', 'ASC')->get();
         return view('frontend.city.details_timeline', compact('categories', 'city', 'title'));
-    }
-
-    public function city_show(City $city) {
-        $title = $city->city_name;
-        $city = City::with('category')->findOrFail($city->id);
-        return view('frontend.city.details_grid', compact('city', 'title'));
     }
 
     public function category_index(Category $category) {
