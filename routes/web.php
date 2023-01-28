@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BatikController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeBatikController;
@@ -108,6 +109,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::controller(SettingController::class)->group(function () {
         Route::get('/setting', 'index')->name('home.setting.index');
         Route::post('/setting/{setting}', 'store')->name('home.setting.store');
+    });
+
+    Route::controller(BrandController::class)->group(function () {
+        Route::get('/brand', 'index')->name('home.brand.index');
+        Route::get('/brand/add', 'create')->name('home.brand.add');
+        Route::post('/brand/add', 'store')->name('home.brand.store');
+        Route::get('/brand/edit/{brand}', 'edit')->name('home.brand.edit');
+        Route::post('/brand/edit/{brand}', 'update')->name('home.brand.update');
+        Route::get('/brand/delete/{brand}', 'destroy')->name('home.brand.delete');
     });
 
 

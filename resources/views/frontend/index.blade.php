@@ -110,37 +110,14 @@
 
     <section class="blog-one">
         <div class="container">
-            <div class="blog-one__top">
-                <div class="block-title">
-                    <p>Muzex News</p>
-                    <h3>Latest From Our News</h3>
-                </div><!-- /.block-title -->
-                <div class="more-post__block">
-                    <a class="more-post__link" href="{{ route('frontend.batik.index') }}">
-                        Semua Postingan
-                        <span class="curved-circle">Semua Postingan &nbsp;&emsp;Semua Postingan &nbsp;&emsp;Semua Postingan &nbsp;&emsp; Semua &nbsp;&emsp;</span>
-                        <!-- /.curved-circle -->
-                    </a>
-                </div><!-- /.more-post__block -->
-            </div><!-- /.blog-one__top -->
-            <div class="row">
-                @foreach ($last_posts as $last_post)
-                    <div class="col-lg-4">
-                        <div class="blog-one__single">
-                            <div class="blog-one__image">
-                                <img src="{{ asset('storage/' . $last_post->batik_picture) }}" alt="">
-                                <div class="blog-one__date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    {{ Carbon\Carbon::parse($last_post->created_at)->diffForHumans() }}
-                                </div><!-- /.blog-one__date -->
-                            </div><!-- /.blog-one__image -->
-                            <div class="blog-one__content">
-                                <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $last_post->batik_name }}</a></h3>
-                            </div><!-- /.blog-one__content -->
-                        </div><!-- /.blog-one__single -->
-                    </div><!-- /.col-lg-4 -->
+            <div class="brand-one__carousel thm__owl-carousel owl-carousel owl-theme" data-options='{"items": 5, "margin": 150, "smartSpeed": 700, "loop": true, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": false, "nav": false, "dots": false, "responsive": {"0": { "margin": 20, "items": 2 }, "575": { "margin": 30, "items": 3 },"767": { "margin": 40, "items": 4 },   "991": { "margin": 70, "items": 4 }, "1199": { "margin": 150, "items": 5 } } }'>
+                @foreach ($brands as $brand)
+                <div class="item">
+                    <img src="{{ asset('storage/' . $brand->brand_picture) }}" alt="Brand {{ $brand->brand_name }}">
+                </div><!-- /.item -->
                 @endforeach
-            </div><!-- /.row -->
+
+            </div><!-- /.brand-one__carousel thm__owl-carousel owl-carousel owl-theme -->
         </div><!-- /.container -->
     </section><!-- /.blog-one -->
 @endsection

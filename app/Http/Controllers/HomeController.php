@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Category;
 use App\Models\Batik;
+use App\Models\Brand;
 use App\Models\SubCategory;
 
 class HomeController extends Controller
@@ -14,8 +15,9 @@ class HomeController extends Controller
         $city = City::orderBy('city_viewed', 'DESC')->firstOrFail();
         $categories = Category::with('batik')->where('city_id', $city->id)->orderBy('category_no', 'ASC')->get();
         $last_posts = Batik::orderBy('created_at', 'DESC')->limit(3)->get();
+        $brands = Brand::all();
         $title = 'Home';
-        return view('frontend.index', compact('categories', 'last_posts', 'city', 'title'));
+        return view('frontend.index', compact('categories', 'last_posts', 'city', 'title', 'brands'));
     }
 
     public function city_index() {
