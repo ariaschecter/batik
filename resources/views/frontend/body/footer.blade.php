@@ -25,7 +25,7 @@
                         <h3 class="footer-widget__title">Contact</h3><!-- /.footer-widget__title -->
                         <p>{{ $setting->setting_address }}</p>
                         <p><a href="tel:{{ $setting->setting_no_phone }}">{{ $setting->setting_no_phone }}</a></p>
-                        <p><a href="mailto:{{ $setting->setting_email }}">{{ $setting->setting_email }}</a></p>
+                        <p><a href="mailto:{{ $setting->setting_email }}" target="_blank">{{ $setting->setting_email }}</a></p>
                     </div><!-- /.footer-widget -->
                 </div><!-- /.col-lg-3 -->
                 {{-- <div class="col-lg-3">
