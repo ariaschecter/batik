@@ -6,7 +6,6 @@ use App\Models\Batik;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Image;
@@ -41,8 +40,8 @@ class BatikController extends Controller
         ]);
 
         $image = $request->file('batik_picture');
-        $upload = 'upload/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(770, 450)->save('storage/' . $upload);
+        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(770, 450)->save($upload);
 
         $validated = $request->except(['_token', 'batik_picture']);
         $validated['batik_picture'] = $upload;
@@ -75,10 +74,10 @@ class BatikController extends Controller
         $validated = $request->except(['_token', 'batik_picture']);
 
         if ($request->batik_picture) {
-            Storage::delete($batik->batik_picture);
+            unlink($batik->batik_picture);
             $image = $request->file('batik_picture');
-            $batik_picture = 'upload/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(770, 450)->save('storage/' . $batik_picture);
+            $batik_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(770, 450)->save($batik_picture);
         } else {
             $batik_picture = $batik->batik_picture;
         }
@@ -96,7 +95,7 @@ class BatikController extends Controller
     }
 
     public function destroy(Category $category, Batik $batik) {
-        Storage::delete($batik->batik_picture);
+        unlink($batik->batik_picture);
         $batik->delete();
 
         $notification = [

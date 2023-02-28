@@ -30,8 +30,8 @@ class CityController extends Controller
         ]);
 
         $image = $request->file('city_picture');
-        $upload = 'upload/city/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(363, 363)->save('storage/' . $upload);
+        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(363, 363)->save($upload);
 
 
         $validated['city_picture'] = $upload;
@@ -57,10 +57,10 @@ class CityController extends Controller
         ]);
 
         if ($request->city_picture) {
-            Storage::delete($city->city_picture);
+            unlink($city->city_picture);
             $image = $request->file('city_picture');
-            $city_picture = 'upload/city/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(363, 363)->save('storage/' . $city_picture);
+            $city_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(363, 363)->save($city_picture);
         } else {
             $city_picture = $city->city_picture;
         }
@@ -83,12 +83,12 @@ class CityController extends Controller
         foreach ($categories as $category) {
             SubCategory::where('category_id', $category->id)->delete();
             foreach ($category->batik as $batik) {
-                Storage::delete($batik->batik_picture);
+                unlink($batik->batik_picture);
             }
             Batik::where('category_id', $category->id)->delete();
         }
         Category::where('city_id', $city->id)->delete();
-        Storage::delete($city->city_picture);
+        unlink($city->city_picture);
         $city->delete();
 
         $notification = [

@@ -26,8 +26,8 @@ class TeamController extends Controller
         ]);
 
         $image = $request->file('team_picture');
-        $upload = 'upload/team/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(320, 320)->save('storage/' . $upload);
+        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(320, 320)->save($upload);
 
         $validated['team_picture'] = $upload;
 
@@ -52,10 +52,10 @@ class TeamController extends Controller
         ]);
 
         if ($request->team_picture) {
-            Storage::delete($team->team_picture);
+            unlink($team->team_picture);
             $image = $request->file('team_picture');
-            $upload = 'upload/team/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(320, 320)->save('storage/' . $upload);
+            $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(320, 320)->save($upload);
             $team_picture = $upload;
         } else {
             $team_picture = $team->team_picture;
@@ -74,7 +74,7 @@ class TeamController extends Controller
     }
 
     public function destroy(Team $team) {
-        Storage::delete($team->team_picture);
+        unlink($team->team_picture);
         $team->delete();
 
         $notification = [

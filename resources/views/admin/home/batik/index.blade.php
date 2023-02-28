@@ -48,8 +48,8 @@
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>
-                                            <a href="{{ asset('storage/' . $batik->batik_picture) }}" class="image-popup-no-margins">
-                                                <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture" style="width: 50px; height: 50px">
+                                            <a href="{{ asset($batik->batik_picture) }}" class="image-popup-no-margins">
+                                                <img src="{{ asset($batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture" style="width: 50px; height: 50px">
                                             </a>
                                         <td>{{ $batik->category->category_name }}</td>
                                         <td>{{ ($batik->sub_category == null ? 'Null' : $batik->sub_category->sub_name) }}</td>

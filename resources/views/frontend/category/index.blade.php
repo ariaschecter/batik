@@ -4,7 +4,7 @@
 @php
     $setting = \App\Models\Setting::first();
 @endphp
-<section class="page-header" style="background-image: url({{ asset('storage/' . $setting->setting_banner) }});">
+<section class="page-header" style="background-image: url({{ asset($setting->setting_banner) }});">
     <div class="container">
         <h2>Category : {{ $category->category_name }}</h2>
     </div><!-- /.container -->
@@ -31,7 +31,7 @@
                 <div class="col-lg-4 col-md-6 filter-item {{ $batik->sub_id }}">
                     <div class="collection-grid__single">
                         <div class="collection-grid__image">
-                            <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
+                            <img src="{{ asset($batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
                             <a href="#" class="collection-grid__link">+</a><!-- /.collection-grid__link -->
                         </div><!-- /.collection-grid__image -->
                         <div class="collection-grid__content">

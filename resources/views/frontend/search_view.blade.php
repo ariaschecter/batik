@@ -1,7 +1,9 @@
 @extends('frontend.frontend_master')
 
-@section('frontend')
-<section class="page-header" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);">
+@section('frontend')@php
+$setting = \App\Models\Setting::first();
+@endphp
+<section class="page-header" style="background-image: url({{ asset($setting->setting_banner) }});">
     <div class="container">
         <h2>Search Batik</h2>
     </div><!-- /.container -->
@@ -20,7 +22,7 @@
                 <div class="col-lg-4 col-md-6 filter-item">
                     <div class="collection-grid__single">
                         <div class="collection-grid__image">
-                            <img src="{{ asset('storage/' . $city->city_picture) }}" alt="{{ $city->city_name }} Picture">
+                            <img src="{{ asset($city->city_picture) }}" alt="{{ $city->city_name }} Picture">
                         </div><!-- /.collection-grid__image -->
                         <div class="collection-grid__content">
                             <h3><a href="{{ route('frontend.city.show', $city->city_slug) }}">{{ $city->city_name }}</a></h3>

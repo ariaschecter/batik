@@ -46,7 +46,7 @@
                     @if ($batik)
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-sm-12">
-                                <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
+                                <img src="{{ asset($batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
                             </div>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 {!! Str::of($batik->batik_description)->limit(500) !!}
@@ -95,7 +95,7 @@
                 @foreach ($category->batik as $batik)
                     <div class="item">
                         <div class="collection-one__single">
-                            <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
+                            <img src="{{ asset($batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
                             <div class="collection-one__content">
                                 <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $batik->batik_name }}</a></h3>
                             </div><!-- /.collection-one__content -->
@@ -118,7 +118,7 @@
                 <div class="col-lg-4">
                     <div class="team-one__single">
                         <div class="team-one__image">
-                            <img src="{{ asset('storage/' . $team->team_picture) }}" alt="">
+                            <img src="{{ asset($team->team_picture) }}" alt="">
                         </div><!-- /.team-one__image -->
                         <div class="team-one__content">
                             <h3>{{ $team->team_name }}</h3>
@@ -139,7 +139,7 @@
             <div class="brand-one__carousel thm__owl-carousel owl-carousel owl-theme" data-options='{"items": 5, "margin": 150, "smartSpeed": 700, "loop": true, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": false, "nav": false, "dots": false, "responsive": {"0": { "margin": 20, "items": 2 }, "575": { "margin": 30, "items": 3 },"767": { "margin": 40, "items": 4 },   "991": { "margin": 70, "items": 4 }, "1199": { "margin": 150, "items": 5 } } }'>
                 @foreach ($brands as $brand)
                 <div class="item">
-                    <img src="{{ asset('storage/' . $brand->brand_picture) }}" alt="Brand {{ $brand->brand_name }}">
+                    <img src="{{ asset($brand->brand_picture) }}" alt="Brand {{ $brand->brand_name }}">
                 </div><!-- /.item -->
                 @endforeach
 

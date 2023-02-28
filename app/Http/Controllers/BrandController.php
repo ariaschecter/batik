@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Image;
 
 class BrandController extends Controller
 {
@@ -23,9 +23,11 @@ class BrandController extends Controller
             'brand_picture' => 'required|file|image|max:5120'
         ]);
 
-        $image = $request->file('brand_picture')->store('upload/brand');
+        $image = $request->file('brand_picture');
+        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->save($upload);
 
-        $validated['brand_picture'] = $image;
+        $validated['brand_picture'] = $upload;
 
         Brand::create($validated);
 
@@ -47,9 +49,11 @@ class BrandController extends Controller
         ]);
 
         if ($request->brand_picture) {
-            Storage::delete($brand->brand_picture);
-            $image = $request->file('brand_picture')->store('upload/brand');
-            $brand_picture = $image;
+            unlink($brand->brand_picture);
+            $image = $request->file('brand_picture');
+            $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save($upload);
+            $brand_picture = $upload;
         } else {
             $brand_picture = $brand->brand_picture;
         }
@@ -67,7 +71,7 @@ class BrandController extends Controller
     }
 
     public function destroy(Brand $brand) {
-        Storage::delete($brand->brand_picture);
+        unlink($brand->brand_picture);
         $brand->delete();
 
         $notification = [

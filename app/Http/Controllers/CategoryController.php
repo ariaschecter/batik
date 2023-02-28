@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -89,7 +88,7 @@ class CategoryController extends Controller
         SubCategory::where('category_id', $category->id)->delete();
         $batiks = Batik::where('category_id', $category->id)->get();
         foreach ($batiks as $batik) {
-            Storage::delete($batik->batik_picture);
+            unlink($batik->batik_picture);
         }
         Batik::where('category_id', $category->id)->delete();
         $category->delete();

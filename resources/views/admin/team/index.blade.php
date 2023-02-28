@@ -48,8 +48,8 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $team->team_name }}</td>
                                         <td>
-                                            <a href="{{ asset('storage/' . $team->team_picture) }}" class="image-popup-no-margins">
-                                                <img src="{{ asset('storage/' . $team->team_picture) }}" alt="team picture" style="width: 50px; height: 50px">
+                                            <a href="{{ asset($team->team_picture) }}" class="image-popup-no-margins">
+                                                <img src="{{ asset($team->team_picture) }}" alt="team picture" style="width: 50px; height: 50px">
                                             </a>
                                         </td>
                                         <td>{{ $team->team_positition }}</td>

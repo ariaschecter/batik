@@ -34,8 +34,8 @@ class HomeBatikController extends Controller
         ]);
 
         $image = $request->file('batik_picture');
-        $upload = 'upload/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(770, 450)->save('storage/' . $upload);
+        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(770, 450)->save($upload);
 
         $validated = $request->except(['_token', 'batik_picture']);
         $validated['batik_picture'] = $upload;
@@ -69,10 +69,10 @@ class HomeBatikController extends Controller
         $validated = $request->except(['_token', 'batik_picture']);
 
         if ($request->batik_picture) {
-            Storage::delete($batik->batik_picture);
+            unlink($batik->batik_picture);
             $image = $request->file('batik_picture');
-            $batik_picture = 'upload/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(770, 450)->save('storage/' . $batik_picture);
+            $batik_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(770, 450)->save($batik_picture);
 
         } else {
             $batik_picture = $batik->batik_picture;
@@ -91,7 +91,7 @@ class HomeBatikController extends Controller
     }
 
     public function destroy(Batik $batik) {
-        Storage::delete($batik->batik_picture);
+        unlink($batik->batik_picture);
         $batik->delete();
 
         $notification = [

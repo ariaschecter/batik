@@ -46,7 +46,7 @@
                 @if ($batik)
                     <div class="row">
                         <div class="col-lg-8 col-md-12 col-sm-12">
-                            <img src="{{ asset('storage/' . $batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
+                            <img src="{{ asset($batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             {!! Str::of($batik->batik_description)->limit(500) !!}

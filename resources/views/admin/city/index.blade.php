@@ -47,8 +47,8 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $city->city_name }}</td>
                                         <td>
-                                            <a href="{{ asset('storage/' . $city->city_picture) }}" class="image-popup-no-margins">
-                                                <img src="{{ asset('storage/' . $city->city_picture) }}" alt="city picture" style="width: 50px; height: 50px">
+                                            <a href="{{ asset($city->city_picture) }}" class="image-popup-no-margins">
+                                                <img src="{{ asset($city->city_picture) }}" alt="city picture" style="width: 50px; height: 50px">
                                             </a>
                                         </td>
                                         <td>

@@ -21,14 +21,14 @@ class SettingController extends Controller
             'setting_description_footer' => 'required',
             'setting_no_phone' => 'required',
             'setting_email' => 'required',
-            'setting_banner' => 'file|image|max:5120',
+            'setting_banner' => 'file|image',
         ]);
 
         if ($request->setting_banner) {
-            Storage::delete($setting->setting_banner);
+            unlink($setting->setting_banner);
             $image = $request->file('setting_banner');
-            $setting_banner = 'upload/setting/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1920, 1042)->save('storage/' . $setting_banner);
+            $setting_banner = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(1920, 1042)->save($setting_banner);
         } else {
             $setting_banner = $setting->setting_banner;
         }

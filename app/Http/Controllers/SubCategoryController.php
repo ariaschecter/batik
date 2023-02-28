@@ -62,7 +62,7 @@ class SubCategoryController extends Controller
     public function destroy(Category $category, SubCategory $subcategory) {
         $batiks = Batik::where('sub_id', $subcategory->id)->get();
         foreach ($batiks as $batik) {
-            Storage::delete($batik->batik_picture);
+            unlink($batik->batik_picture);
         }
         Batik::where('sub_id', $subcategory->id)->delete();
         $subcategory->delete();

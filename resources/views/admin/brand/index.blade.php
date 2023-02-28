@@ -47,8 +47,8 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $brand->brand_name }}</td>
                                         <td>
-                                            <a href="{{ asset('storage/' . $brand->brand_picture) }}" class="image-popup-no-margins">
-                                                <img src="{{ asset('storage/' . $brand->brand_picture) }}" alt="brand picture" style="width: 50px; height: 50px">
+                                            <a href="{{ asset( $brand->brand_picture) }}" class="image-popup-no-margins">
+                                                <img src="{{ asset( $brand->brand_picture) }}" alt="brand picture" style="width: 50px; height: 50px">
                                             </a>
                                         </td>
                                         <td>
