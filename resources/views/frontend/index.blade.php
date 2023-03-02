@@ -17,7 +17,7 @@
                   <ol>
                     @php($i = 1)
                     @foreach ($categories as $category)
-                        <li><a href="#0" data-date="{{ $i++ }}/01/2022" class="cd-h-timeline__date {{ $i == 2 ? 'cd-h-timeline__date--selected' : '' }}">{{ $category->category_name }}</a></li>
+                        <li><a href="#0" data-date="{{ $i++ }}/01/2022" class="cd-h-timeline__date {{ $i == 2 ? 'cd-h-timeline__date--selected' : '' }}" style="font-family:'Karla'">{{ $category->category_name }}</a></li>
                     @endforeach
 
                   </ol>
@@ -27,8 +27,8 @@
               </div> <!-- .cd-h-timeline__dates -->
 
               <ul>
-                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive">Sebelum</a></li>
-                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next">Sesudah</a></li>
+                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive" style="font-family:'Karla'">Sebelum</a></li>
+                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next" style="font-family:'Karla'">Sesudah</a></li>
               </ul>
             </div> <!-- .cd-h-timeline__container -->
 
@@ -42,18 +42,19 @@
                 ?>
                 <li class="cd-h-timeline__event {{ $i == 2 ? 'cd-h-timeline__event--selected' : '' }} text-component">
                   <div class="container">
-                    <a href="{{ route('frontend.category.index', $category->category_slug) }}"><h2 class="cd-h-timeline__event-title text-center">{{ $category->category_name }}</h2></a>
+                    <a href="{{ route('frontend.category.index', $category->category_slug) }}"><h2 class="cd-h-timeline__event-title text-center" style="font-family:'Karla'">{{ $category->category_name }}</h2></a>
                     @if ($batik)
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-sm-12">
                                 <img src="{{ asset($batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
                             </div>
-                            <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="col-lg-4 col-md-12 col-sm-12" style="font-family:'Karla'">
                                 {!! Str::of($batik->batik_description)->limit(500) !!}
+                                <small class="btn text-warning">Diambil dari data view terbanyak</small>
                             </div>
                         </div>
                     @else
-                        <h3 class="block-title-one text-center">Data Batik Masih Kosong</h3>
+                        <h3 class="block-title-one text-center" style="font-family:'Karla'">Data Batik Masih Kosong</h3>
                     @endif
                   </div>
                 </li>

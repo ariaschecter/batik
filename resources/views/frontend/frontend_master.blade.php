@@ -38,6 +38,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/timeline.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
 
+    <style>
+        * {
+            font-family: "Karla", sans-serif;
+        }
+    </style>
+
 </head>
 
 <body>

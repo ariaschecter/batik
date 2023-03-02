@@ -9,10 +9,10 @@
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <div class="footer-widget footer-widget__links">
-                        <h3 class="footer-widget__title">Quick Link</h3><!-- /.footer-widget__title -->
+                        <h3 class="footer-widget__title">Tautan Cepat</h3><!-- /.footer-widget__title -->
                         <ul class="footer-widget__links-list list-unstyled">
                             <li>
-                                <a href="{{ route('frontend.city.index') }}">City</a>
+                                <a href="{{ route('frontend.city.index') }}">Kota</a>
                             </li>
                             <li>
                                 <a href="{{ route('frontend.batik.index') }}">Batik</a>
@@ -22,7 +22,7 @@
                 </div><!-- /.col-lg-2 -->
                 <div class="col-lg-4">
                     <div class="footer-widget footer-widget__contact">
-                        <h3 class="footer-widget__title">Contact</h3><!-- /.footer-widget__title -->
+                        <h3 class="footer-widget__title">Kontak</h3><!-- /.footer-widget__title -->
                         <p>{{ $setting->setting_address }}</p>
                         <p><a href="tel:{{ $setting->setting_no_phone }}">{{ $setting->setting_no_phone }}</a></p>
                         <p><a href="mailto:{{ $setting->setting_email }}" target="_blank">{{ $setting->setting_email }}</a></p>
