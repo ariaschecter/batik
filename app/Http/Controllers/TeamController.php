@@ -52,7 +52,7 @@ class TeamController extends Controller
         ]);
 
         if ($request->team_picture) {
-            unlink($team->team_picture);
+            if(file_exists(public_path($team->team_picture))) unlink($team->team_picture);
             $image = $request->file('team_picture');
             $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(320, 320)->save($upload);
@@ -74,7 +74,7 @@ class TeamController extends Controller
     }
 
     public function destroy(Team $team) {
-        unlink($team->team_picture);
+        if(file_exists(public_path($team->team_picture))) unlink($team->team_picture);
         $team->delete();
 
         $notification = [

@@ -74,7 +74,7 @@ class BatikController extends Controller
         $validated = $request->except(['_token', 'batik_picture']);
 
         if ($request->batik_picture) {
-            unlink($batik->batik_picture);
+            if(file_exists(public_path($batik->batik_picture))) unlink($batik->batik_picture);
             $image = $request->file('batik_picture');
             $batik_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(770, 450)->save($batik_picture);
@@ -95,7 +95,7 @@ class BatikController extends Controller
     }
 
     public function destroy(Category $category, Batik $batik) {
-        unlink($batik->batik_picture);
+        if(file_exists(public_path($batik->batik_picture))) unlink($batik->batik_picture);
         $batik->delete();
 
         $notification = [

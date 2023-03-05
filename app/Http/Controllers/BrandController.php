@@ -49,7 +49,7 @@ class BrandController extends Controller
         ]);
 
         if ($request->brand_picture) {
-            unlink($brand->brand_picture);
+            if(file_exists(public_path($brand->brand_picture))) unlink($brand->brand_picture);
             $image = $request->file('brand_picture');
             $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->save($upload);
@@ -71,7 +71,7 @@ class BrandController extends Controller
     }
 
     public function destroy(Brand $brand) {
-        unlink($brand->brand_picture);
+        if(file_exists(public_path($brand->brand_picture))) unlink($brand->brand_picture);
         $brand->delete();
 
         $notification = [

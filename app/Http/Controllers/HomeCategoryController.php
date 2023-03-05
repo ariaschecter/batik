@@ -94,7 +94,7 @@ class HomeCategoryController extends Controller
         SubCategory::where('category_id', $category->id)->delete();
         $batiks = Batik::where('category_id', $category->id)->get();
         foreach ($batiks as $batik) {
-            unlink($batik->batik_picture);
+            if(file_exists(public_path($batik->batik_picture))) unlink($batik->batik_picture);
         }
         Batik::where('category_id', $category->id)->delete();
         $category->delete();

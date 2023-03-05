@@ -25,7 +25,7 @@ class SettingController extends Controller
         ]);
 
         if ($request->setting_banner) {
-            unlink($setting->setting_banner);
+            if(file_exists(public_path($setting->setting_banner))) unlink($setting->setting_banner);
             $image = $request->file('setting_banner');
             $setting_banner = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(1920, 1042)->save($setting_banner);

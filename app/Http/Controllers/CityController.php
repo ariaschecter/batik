@@ -57,7 +57,7 @@ class CityController extends Controller
         ]);
 
         if ($request->city_picture) {
-            unlink($city->city_picture);
+            if(file_exists(public_path($city->city_picture))) unlink($city->city_picture);
             $image = $request->file('city_picture');
             $city_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(363, 363)->save($city_picture);
@@ -83,12 +83,12 @@ class CityController extends Controller
         foreach ($categories as $category) {
             SubCategory::where('category_id', $category->id)->delete();
             foreach ($category->batik as $batik) {
-                unlink($batik->batik_picture);
+                if(file_exists(public_path($batik->batik_picture))) unlink($batik->batik_picture);
             }
             Batik::where('category_id', $category->id)->delete();
         }
         Category::where('city_id', $city->id)->delete();
-        unlink($city->city_picture);
+        if(file_exists(public_path($city->city_picture))) unlink($city->city_picture);
         $city->delete();
 
         $notification = [
