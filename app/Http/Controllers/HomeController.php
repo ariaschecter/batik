@@ -57,7 +57,7 @@ class HomeController extends Controller
             $title = $request->search;
             $batiks = Batik::with('category.city')->where('batik_name', 'LIKE', '%' . $request->search . '%')->orderBy('created_at', 'DESC')->get();
         } else {
-            $title = 'All Batik';
+            $title = 'Semua Batik';
             $batiks = Batik::with('category.city')->orderBy('created_at', 'DESC')->get();
         }
         $cities = City::orderBy('city_name', 'ASC')->get();
