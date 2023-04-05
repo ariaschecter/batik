@@ -27,7 +27,7 @@ class HomeBatikController extends Controller
         $validated = $request->validate([
             'category_id' => 'required',
             'batik_name' => 'required',
-            'batik_picture' => 'required|file|image|max:5120',
+            'batik_picture' => 'required|file|image',
             'batik_description' => 'required',
         ],[
             'category_id.integer' => 'The Category field is required.'
@@ -61,7 +61,7 @@ class HomeBatikController extends Controller
         $request->validate([
             'category_id' => 'required',
             'batik_name' => ['required'],
-            'batik_picture' => 'file|image|max:5120',
+            'batik_picture' => 'file|image',
             'batik_description' => 'required',
         ]);
 

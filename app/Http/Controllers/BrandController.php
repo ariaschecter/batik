@@ -20,7 +20,7 @@ class BrandController extends Controller
     public function store(Request $request) {
         $validated = $request->validate([
             'brand_name' => 'required|unique:brands,brand_name',
-            'brand_picture' => 'required|file|image|max:5120'
+            'brand_picture' => 'required|file|image'
         ]);
 
         $image = $request->file('brand_picture');
@@ -45,7 +45,7 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand) {
         $validated = $request->validate([
             'brand_name' => 'required|unique:brands,brand_name,'.$brand->id,
-            'brand_picture' => 'file|image|max:5120'
+            'brand_picture' => 'file|image'
         ]);
 
         if ($request->brand_picture) {

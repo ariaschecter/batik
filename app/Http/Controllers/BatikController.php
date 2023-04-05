@@ -35,7 +35,7 @@ class BatikController extends Controller
         $request->validate([
             'category_id' => 'required|integer',
             'batik_name' => 'required',
-            'batik_picture' => 'required|file|image|max:5120',
+            'batik_picture' => 'required|file|image',
             'batik_description' => 'required',
         ]);
 
@@ -66,7 +66,7 @@ class BatikController extends Controller
         $request->validate([
             'category_id' => 'required',
             'batik_name' => ['required'],
-            'batik_picture' => 'file|image|max:5120',
+            'batik_picture' => 'file|image',
             'batik_description' => 'required',
         ]);
 

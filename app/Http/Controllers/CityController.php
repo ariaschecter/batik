@@ -26,7 +26,7 @@ class CityController extends Controller
     public function store(Request $request) {
         $validated = $request->validate([
             'city_name' => 'required|unique:cities,city_name',
-            'city_picture' => 'required|file|image|max:5120'
+            'city_picture' => 'required|file|image'
         ]);
 
         $image = $request->file('city_picture');
@@ -53,7 +53,7 @@ class CityController extends Controller
     public function update(Request $request, City $city) {
         $validated = $request->validate([
             'city_name' => ['required', Rule::unique('cities')->ignore($city->id, 'id')],
-            'city_picture' => 'file|image|max:5120'
+            'city_picture' => 'file|image'
         ]);
 
         if ($request->city_picture) {

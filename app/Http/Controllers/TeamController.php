@@ -22,7 +22,7 @@ class TeamController extends Controller
         $validated = $request->validate([
             'team_name' => 'required|unique:teams,team_name',
             'team_positition' => 'required',
-            'team_picture' => 'required|file|image|max:5120'
+            'team_picture' => 'required|file|image'
         ]);
 
         $image = $request->file('team_picture');
@@ -48,7 +48,7 @@ class TeamController extends Controller
         $request->validate([
             'team_name' => 'required|unique:teams,team_name,'.$team->id,
             'team_positition' => 'required',
-            'team_picture' => 'file|image|max:5120'
+            'team_picture' => 'file|image'
         ]);
 
         if ($request->team_picture) {
