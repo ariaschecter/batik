@@ -59,44 +59,6 @@
 
         @yield('frontend')
 
-        {{-- <section class="brand-one">
-            <div class="container">
-                <div class="brand-one__carousel thm__owl-carousel owl-carousel owl-theme" data-options='{
-            "items": 5, "margin": 150, "smartSpeed": 700, "loop": true, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": false, "nav": false, "dots": false, "responsive": {"0": { "margin": 20, "items": 2 }, "575": { "margin": 30, "items": 3 },"767": { "margin": 40, "items": 4 },   "991": { "margin": 70, "items": 4 }, "1199": { "margin": 150, "items": 5 } } }'>
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-1.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-2.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-3.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-4.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-5.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-1.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-2.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-3.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-4.png" alt="">
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <img src="frontend/assets/images/brand/brand-1-5.png" alt="">
-                    </div><!-- /.item -->
-                </div><!-- /.brand-one__carousel thm__owl-carousel owl-carousel owl-theme -->
-            </div><!-- /.container -->
-        </section><!-- /.brand-one --> --}}
-
         @include('frontend.body.footer')
     </div><!-- /.page-wrapper -->
 
@@ -112,45 +74,6 @@
             </form>
         </div><!-- /.search-popup__inner -->
     </div><!-- /.search-popup -->
-
-    {{-- <div class="side-content__block">
-        <div class="side-content__block-overlay custom-cursor__overlay">
-            <div class="cursor"></div>
-            <div class="cursor-follower"></div>
-        </div><!-- /.side-content__block-overlay -->
-        <div class="side-content__block-inner ">
-            <a href="index.html">
-                <img src="{{ asset('frontend/assets/images/logo.jpg') }}" alt="" width="143">
-            </a>
-            <div class="side-content__block-about">
-                <h3 class="side-content__block__title">About Us</h3><!-- /.side-content__block__title -->
-                <p class="side-content__block-about__text">{{ $setting->setting_description_footer }}</p><!-- /.side-content__block-about__text -->
-            </div><!-- /.side-content__block-about -->
-            <hr class="side-content__block-line" />
-            <div class="side-content__block-contact">
-                <h3 class="side-content__block__title">Contact Us</h3><!-- /.side-content__block__title -->
-                <ul class="side-content__block-contact__list">
-                    <li class="side-content__block-contact__list-item">
-                        <i class="fa fa-map-marker"></i>
-                        {{ $setting->setting_address }}
-                    </li><!-- /.side-content__block-contact__list-item -->
-                    <li class="side-content__block-contact__list-item">
-                        <i class="fa fa-phone"></i>
-                        <a href="tel:{{ $setting->setting_no_phone }}">{{ $setting->setting_no_phone }}</a>
-                    </li><!-- /.side-content__block-contact__list-item -->
-                    <li class="side-content__block-contact__list-item">
-                        <i class="fa fa-envelope"></i>
-                        <a href="mailto:example@mail.com">example@mail.com</a>
-                    </li><!-- /.side-content__block-contact__list-item -->
-                    <li class="side-content__block-contact__list-item">
-                        <i class="fa fa-clock"></i>
-                        Week Days: 09.00 to 18.00 Sunday: Closed
-                    </li><!-- /.side-content__block-contact__list-item -->
-                </ul><!-- /.side-content__block-contact__list -->
-            </div><!-- /.side-content__block-contact -->
-            <p class="side-content__block__text site-footer__copy-text"><a href="#">{{ $setting->setting_title }}</a> <i class="fa fa-copyright"></i> {{ date('Y') }} All Right Reserved</p>
-        </div><!-- /.side-content__block-inner -->
-    </div><!-- /.side-content__block --> --}}
 
     <div class="side-menu__block">
 
