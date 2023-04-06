@@ -87,7 +87,7 @@
                     <div class="row mb-3">
                         <label for="batik_description" class="col-sm-2 col-form-label">Batik Description</label>
                         <div class="col-sm-10">
-                            <textarea name="batik_description" cols="30" rows="10">{{ old('batik_description') }}</textarea>
+                            <textarea name="batik_description" class="form-control" cols="30" rows="10">{{ old('batik_description') }}</textarea>
                             @error('batik_description')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
