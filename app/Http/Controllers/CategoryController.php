@@ -38,7 +38,7 @@ class CategoryController extends Controller
         }
 
         $validated['city_id'] = $city->id;
-        $validated['category_slug'] = Str::slug($request->category_name);
+        $validated['category_slug'] = Str::slug($city->city_name . ' ' .$request->category_name);
 
         Category::create($validated);
 
@@ -73,7 +73,7 @@ class CategoryController extends Controller
             }
         }
 
-        $validated['category_slug'] = Str::slug($request->category_name);
+        $validated['category_slug'] = Str::slug($city->city_name . ' ' .$request->category_name);
 
         $category->update($validated);
 
