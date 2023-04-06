@@ -16,7 +16,9 @@
                   </div>
                   <div class="col-lg-4 col-md-12 col-sm-12" style="font-family:'Karla'">
                       {!! Str::of($batik->batik_description)->limit(500) !!}
-                      <small class="btn text-info" style="cursor: default;">Diambil dari data view terbanyak</small>
+                      <div>
+                        <small class="btn text-info" style="cursor: default;">Diambil dari data view terbanyak</small>
+                      </div>
                   </div>
               </div>
           @else
