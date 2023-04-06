@@ -37,10 +37,7 @@
                         <label for="category_id" class="col-sm-2 col-form-label">Batik Category</label>
                         <div class="col-sm-10">
                             <select class="form-select" aria-label="Default Select Example" name="category_id" id="category_id">
-                                {{-- <option selected>Open this select menu</option> --}}
-                                {{-- @foreach ($categories as $category) --}}
                                     <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                {{-- @endforeach --}}
                             </select>
                             @error('category_id') <span class="text-danger"> {{ $message }}</span> @enderror
                         </div>
@@ -90,7 +87,7 @@
                     <div class="row mb-3">
                         <label for="batik_description" class="col-sm-2 col-form-label">Batik Description</label>
                         <div class="col-sm-10">
-                            <textarea name="batik_description" id="elm1" cols="30" rows="10">{{ old('batik_description') }}</textarea>
+                            <textarea name="batik_description" cols="30" rows="10">{{ old('batik_description') }}</textarea>
                             @error('batik_description')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror

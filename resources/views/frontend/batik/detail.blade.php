@@ -18,7 +18,7 @@
                         <img src="{{ asset($batik->batik_picture) }}" class="img-fluid" alt="">
                     </div><!-- /.blog-details__image -->
 
-                    <div>{!! $batik->batik_description !!}</div>
+                    <div>{{ $batik->batik_description }}</div>
                 </div><!-- /.blog-details__main -->
 
             </div><!-- /.col-lg-8 -->
