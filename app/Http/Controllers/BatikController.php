@@ -40,8 +40,8 @@ class BatikController extends Controller
         ]);
 
         $image = $request->file('batik_picture');
-        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(770, 450)->save($upload);
+        $upload = 'image/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->save($upload);
 
         $validated = $request->except(['_token', 'batik_picture']);
         $validated['batik_picture'] = $upload;
@@ -76,8 +76,8 @@ class BatikController extends Controller
         if ($request->batik_picture) {
             if(file_exists(public_path($batik->batik_picture))) unlink($batik->batik_picture);
             $image = $request->file('batik_picture');
-            $batik_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(770, 450)->save($batik_picture);
+            $batik_picture = 'image/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save($batik_picture);
         } else {
             $batik_picture = $batik->batik_picture;
         }
