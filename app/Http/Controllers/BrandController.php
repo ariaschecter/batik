@@ -24,7 +24,7 @@ class BrandController extends Controller
         ]);
 
         $image = $request->file('brand_picture');
-        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        $upload = 'image/brand/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->save($upload);
 
         $validated['brand_picture'] = $upload;
@@ -51,7 +51,7 @@ class BrandController extends Controller
         if ($request->brand_picture) {
             if(file_exists(public_path($brand->brand_picture))) unlink($brand->brand_picture);
             $image = $request->file('brand_picture');
-            $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $upload = 'image/brand/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->save($upload);
             $brand_picture = $upload;
         } else {

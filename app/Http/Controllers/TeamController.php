@@ -26,7 +26,7 @@ class TeamController extends Controller
         ]);
 
         $image = $request->file('team_picture');
-        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        $upload = 'image/team/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(320, 320)->save($upload);
 
         $validated['team_picture'] = $upload;
@@ -54,7 +54,7 @@ class TeamController extends Controller
         if ($request->team_picture) {
             if(file_exists(public_path($team->team_picture))) unlink($team->team_picture);
             $image = $request->file('team_picture');
-            $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $upload = 'image/team/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(320, 320)->save($upload);
             $team_picture = $upload;
         } else {

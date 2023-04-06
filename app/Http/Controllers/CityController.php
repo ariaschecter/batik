@@ -30,7 +30,7 @@ class CityController extends Controller
         ]);
 
         $image = $request->file('city_picture');
-        $upload = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        $upload = 'image/kota/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(363, 363)->save($upload);
 
 
@@ -59,7 +59,7 @@ class CityController extends Controller
         if ($request->city_picture) {
             if(file_exists(public_path($city->city_picture))) unlink($city->city_picture);
             $image = $request->file('city_picture');
-            $city_picture = 'image/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $city_picture = 'image/kota/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(363, 363)->save($city_picture);
         } else {
             $city_picture = $city->city_picture;
