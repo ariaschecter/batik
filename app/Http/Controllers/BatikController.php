@@ -74,7 +74,7 @@ class BatikController extends Controller
         $validated = $request->except(['_token', 'batik_picture']);
 
         if ($request->batik_picture) {
-            if(file_exists(public_path($batik->batik_picture))) unlink($batik->batik_picture);
+            unlink($batik->batik_picture);
             $image = $request->file('batik_picture');
             $batik_picture = 'image/batik/' . time() . uniqid() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->save($batik_picture);
