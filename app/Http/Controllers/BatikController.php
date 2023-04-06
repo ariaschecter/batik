@@ -63,7 +63,6 @@ class BatikController extends Controller
     }
 
     public function update(Request $request, Category $category, Batik $batik) {
-        dd($category);
         $request->validate([
             'category_id' => 'required',
             'batik_name' => ['required'],
