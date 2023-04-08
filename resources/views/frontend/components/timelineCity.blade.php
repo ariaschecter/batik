@@ -8,7 +8,7 @@
       ?>
       <li class="cd-h-timeline__event {{ $i == 2 ? 'cd-h-timeline__event--selected' : '' }} text-component">
         <div class="container">
-          <a href="{{ route('frontend.category.index', $category->category_slug) }}"><h2 class="cd-h-timeline__event-title text-center" style="font-family:'Karla'">{{ $category->category_name }}</h2></a>
+          <a href="{{ route('frontend.category.index', $category->category_slug) }}"><h2 class="cd-h-timeline__event-title text-center" style="font-family:'Playfair Display'">{{ $category->category_name }}</h2></a>
           @if ($batik)
               <div class="row">
                   <div class="col-lg-8 col-md-12 col-sm-12">
@@ -31,7 +31,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12" style="font-family:'Karla'">
+                <div class="col-lg-4 col-md-12 col-sm-12" style="font-family:'Playfair Display'">
                     <div class="sidebar">
                         <div class="sidebar__single">
                             {!! Str::of($batik->batik_description)->limit(500) !!}
@@ -43,7 +43,7 @@
                 </div>
               </div>
           @else
-              <h3 class="block-title-one text-center" style="font-family:'Karla'">Data Batik Masih Kosong</h3>
+              <h3 class="block-title-one text-center" style="font-family:'Playfair Display'">Data Batik Masih Kosong</h3>
           @endif
         </div>
       </li>

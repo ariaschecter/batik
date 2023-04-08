@@ -36,7 +36,8 @@ class HomeController extends Controller
     public function category_index(Category $category) {
         $title = $category->category_name;
         $category = Category::with('batik', 'sub_category')->findOrFail($category->id);
-        return view('frontend.category.index', compact('category', 'title'));
+        $categories = $category->city->category;
+        return view('frontend.category.index', compact('category', 'title', 'categories'));
     }
 
     public function subcategory_index(SubCategory $subcategory) {
@@ -68,6 +69,7 @@ class HomeController extends Controller
         $batik->increment('viewed');
         $batik->category->city->increment('city_viewed');
         $batiks = Batik::latest()->limit(5)->get();
-        return view('frontend.batik.detail', compact('batik', 'batiks', 'title'));
+        $categories = $batik->category->city->category;
+        return view('frontend.batik.detail', compact('batik', 'batiks', 'title', 'categories'));
     }
 }

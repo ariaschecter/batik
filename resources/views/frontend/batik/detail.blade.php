@@ -4,6 +4,40 @@
 @php
     $setting = \App\Models\Setting::first();
 @endphp
+
+<div class="container">
+    <h2 class="text-center">Daur Hidup Batik Khas {{ $batik->category->city->city_name }}</h2>
+</div><!-- /.container -->
+
+<!-- Banner Section -->
+<section class="banner-section">
+    <section class="cd-h-timeline js-cd-h-timeline margin-bottom-md">
+        <div class="cd-h-timeline__container container">
+          <div class="cd-h-timeline__dates">
+            <div class="cd-h-timeline__line">
+              <ol>
+                @foreach ($categories as $key => $category)
+                    <li><a href="#0" data-date="{{ $key }}/01/2022" class="cd-h-timeline__date {{ $category->id == $batik->category->id ? 'cd-h-timeline__date--selected' : '' }}" style="font-family:'Playfair Display'">{{ $category->category_name }}</a></li>
+                @endforeach
+
+              </ol>
+
+              <span class="cd-h-timeline__filling-line" aria-hidden="true"></span>
+            </div> <!-- .cd-h-timeline__line -->
+          </div> <!-- .cd-h-timeline__dates -->
+
+          {{-- <ul>
+            <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive" style="font-family:'Playfair Display'">Sebelum</a></li>
+            <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next" style="font-family:'Playfair Display'">Sesudah</a></li>
+          </ul> --}}
+        </div> <!-- .cd-h-timeline__container -->
+
+        @include('frontend.components.timelineEmpty')
+
+      </section>
+    </section>
+<!--End Banner Section -->
+
 <section class="page-header" style="background-image: url({{ asset($setting->setting_banner) }});">
     <div class="container">
         <h2>{{ $batik->batik_name }}</h2>

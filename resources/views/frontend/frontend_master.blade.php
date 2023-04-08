@@ -10,13 +10,12 @@
     <title>{{ $title }} | {{ $setting->setting_title }}</title>
 
     <!-- favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/assets/images/favicon/icon.jpg') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/assets/images/favicon/icon.jpg') }}    ">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/assets/images/favicon/icon.jpg') }}">
     <link rel="manifest" href="{{ asset('frontend/assets/images/favicon/icon.jpg') }}">
 
     <!-- Fonts URL -->
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700%7CPlayfair+Display:400,500,600,700,800,900%7CWork+Sans:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700,800,900" rel="stylesheet">
 
 
     <!-- Plugins CSS -->

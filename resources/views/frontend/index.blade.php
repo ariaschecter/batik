@@ -17,7 +17,7 @@
                   <ol>
                     @php($i = 1)
                     @foreach ($categories as $category)
-                        <li><a href="#0" data-date="{{ $i++ }}/01/2022" class="cd-h-timeline__date {{ $i == 2 ? 'cd-h-timeline__date--selected' : '' }}" style="font-family:'Karla'">{{ $category->category_name }}</a></li>
+                        <li><a href="#0" data-date="{{ $i++ }}/01/2022" class="cd-h-timeline__date {{ $i == 2 ? 'cd-h-timeline__date--selected' : '' }}" style="font-family:'Playfair Display'">{{ $category->category_name }}</a></li>
                     @endforeach
 
                   </ol>
@@ -27,8 +27,8 @@
               </div> <!-- .cd-h-timeline__dates -->
 
               <ul>
-                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive" style="font-family:'Karla'">Sebelum</a></li>
-                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next" style="font-family:'Karla'">Sesudah</a></li>
+                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive" style="font-family:'Playfair Display'">Sebelum</a></li>
+                <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next" style="font-family:'Playfair Display'">Sesudah</a></li>
               </ul>
             </div> <!-- .cd-h-timeline__container -->
 
@@ -67,7 +67,7 @@
             @foreach ($categories as $category)
                 @foreach ($category->batik as $batik)
                     <div class="item">
-                        <div class="collection-one__single">
+                        <div class="collection-one__single" style="width:100%; max-height:217px; overflow: hidden;">
                             <img src="{{ asset($batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
                             <div class="collection-one__content">
                                 <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $batik->batik_name }}</a></h3>
