@@ -18,7 +18,7 @@ class HomeController extends Controller
         $brands = Brand::all();
         $teams = Team::all();
         $title = 'Beranda';
-        return view('frontend.index', compact('categories', 'last_posts', 'city', 'title', 'brands', 'teams'));
+        return view('frontend.index', compact('categories', 'city', 'title', 'brands', 'teams'));
     }
 
     public function city_index() {
