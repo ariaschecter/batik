@@ -4,12 +4,6 @@
 @php
     $setting = \App\Models\Setting::first();
 @endphp
-<section class="page-header" style="background-image: url({{ asset($setting->setting_banner) }});">
-    <div class="container">
-        <h2>Semua Kota</h2>
-    </div><!-- /.container -->
-</section><!-- /.page-header -->
-
 <section class="collection-grid">
     <div class="container">
         <div class="collection-grid__top">

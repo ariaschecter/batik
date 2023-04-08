@@ -12,14 +12,35 @@
           @if ($batik)
               <div class="row">
                   <div class="col-lg-8 col-md-12 col-sm-12">
-                      <img src="{{ asset($batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
-                  </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12" style="font-family:'Karla'">
-                      {!! Str::of($batik->batik_description)->limit(500) !!}
-                      <div>
-                        <small class="btn text-info" style="cursor: default;">Diambil dari data view terbanyak</small>
-                      </div>
-                  </div>
+                    <div id="{{ $batik->batik_slug }}" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($category->batik as $item)
+                                <div class="carousel-item {{ $item->id == $batik->id ? 'active' : '' }}">
+                                    <img src="{{ asset($batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
+                                </div>
+                            @endforeach
+
+                        </div>
+                        <a class="carousel-control-prev" href="#{{ $batik->batik_slug }}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#{{ $batik->batik_slug }}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12" style="font-family:'Karla'">
+                    <div class="sidebar">
+                        <div class="sidebar__single">
+                            {!! Str::of($batik->batik_description)->limit(500) !!}
+                        </div>
+                        <div class="mt-3">
+                            <small class="btn text-info" style="cursor: default;">Diambil dari data view terbanyak</small>
+                        </div>
+                    </div>
+                </div>
               </div>
           @else
               <h3 class="block-title-one text-center" style="font-family:'Karla'">Data Batik Masih Kosong</h3>
