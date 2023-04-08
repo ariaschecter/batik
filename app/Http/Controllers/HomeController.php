@@ -67,6 +67,7 @@ class HomeController extends Controller
         $title = $batik->batik_name;
         $batik->increment('viewed');
         $batik->category->city->increment('city_viewed');
-        return view('frontend.batik.detail', compact('batik', 'title'));
+        $batiks = Batik::latest()->limit(5)->get();
+        return view('frontend.batik.detail', compact('batik', 'batiks', 'title'));
     }
 }

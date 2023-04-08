@@ -36,6 +36,7 @@
                     <div class="collection-grid__single">
                         <div class="collection-grid__image">
                             <img src="{{ asset($batik->batik_picture) }}" alt="{{ $batik->batik_name }} Picture">
+                            <a href="{{ route('frontend.batik.show', $batik->batik_slug) }}" class="collection-grid__link">→</a>
                         </div><!-- /.collection-grid__image -->
                         <div class="collection-grid__content">
                             <h3><a href="{{ route('frontend.batik.show', $batik->batik_slug) }}">{{ $batik->batik_name }}</a></h3>

@@ -127,6 +127,11 @@
     <script src="{{ asset('frontend/timeline/js/util.js') }}"></script> <!-- util functions included in the CodyHouse framework -->
     <script src="{{ asset('frontend/timeline/js/swipe-content.js') }}"></script> <!-- A Vanilla JavaScript plugin to detect touch interactions -->
     <script src="{{ asset('frontend/timeline/js/main.js') }}"></script>
+    <script>
+        $('.carousel').carousel({
+            interval: 99999999
+        })
+    </script>
 </body>
 
 </html>

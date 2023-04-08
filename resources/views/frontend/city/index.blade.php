@@ -18,6 +18,7 @@
                     <div class="collection-grid__single">
                         <div class="collection-grid__image">
                             <img src="{{ asset($city->city_picture) }}" alt="{{ $city->city_name }} Picture">
+                            <a href="{{ route('frontend.timeline.show', $city->city_slug) }}" class="collection-grid__link">→</a>
                         </div><!-- /.collection-grid__image -->
                         <div class="collection-grid__content">
                             <h3><a href="{{ route('frontend.timeline.show', $city->city_slug) }}">{{ $city->city_name }}</a></h3>

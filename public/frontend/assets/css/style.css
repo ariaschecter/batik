@@ -2324,12 +2324,12 @@ a:focus {
 }
 
 .collection-grid__single:hover .collection-grid__image>a {
-	/* visibility: visible;
+	visibility: visible;
 	opacity: 1;
 	-webkit-transform: translateY(0) rotate(0);
 	        transform: translateY(0) rotate(0);
 	-webkit-transition-delay: 500ms;
-	        transition-delay: 500ms; */
+	        transition-delay: 500ms;
 }
 
 .collection-grid__content h3 {
