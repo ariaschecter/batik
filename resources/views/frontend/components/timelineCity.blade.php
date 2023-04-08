@@ -16,7 +16,7 @@
                         <div class="carousel-inner">
                             @foreach ($category->batik as $item)
                                 <div class="carousel-item {{ $item->id == $batik->id ? 'active' : '' }}">
-                                    <img src="{{ asset($batik->batik_picture) }}" alt="{{ $category->category_name }} Picture">
+                                    <img src="{{ asset($item->batik_picture) }}" alt="{{ $category->category_name }} Picture">
                                 </div>
                             @endforeach
 
