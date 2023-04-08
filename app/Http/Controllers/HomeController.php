@@ -15,7 +15,6 @@ class HomeController extends Controller
     public function index() {
         $city = City::orderBy('city_viewed', 'DESC')->firstOrFail();
         $categories = Category::with('batik')->where('city_id', $city->id)->orderBy('category_no', 'ASC')->get();
-        $last_posts = Batik::orderBy('created_at', 'DESC')->limit(3)->get();
         $brands = Brand::all();
         $teams = Team::all();
         $title = 'Beranda';
