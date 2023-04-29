@@ -26,10 +26,6 @@
             </div> <!-- .cd-h-timeline__line -->
           </div> <!-- .cd-h-timeline__dates -->
 
-          {{-- <ul>
-            <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive" style="font-family:'Playfair Display'">Sebelum</a></li>
-            <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next" style="font-family:'Playfair Display'">Sesudah</a></li>
-          </ul> --}}
         </div> <!-- .cd-h-timeline__container -->
 
         @include('frontend.components.timelineEmpty')
@@ -58,12 +54,6 @@
             </div><!-- /.col-lg-8 -->
             <div class="col-lg-4">
                 <div class="sidebar">
-                    <div class="sidebar__single">
-                        <h3 class="sidebar__title">Kategori</h3>
-                        <ul class="list-unstyled sidebar__cat-list">
-                            <li><a href="{{ route('frontend.category.index', $batik->category->category_slug) }}">{{ $batik->category->category_name }}</a></li>
-                        </ul><!-- /.list-unstyled sidebar__cat-list -->
-                    </div><!-- /.sidebar__single -->
                     <div class="sidebar__single">
                         <h3 class="sidebar__title">Postingan Terakhir</h3>
                         <div class="sidebar__post">
