@@ -71,9 +71,12 @@ class UserController extends Controller
             return redirect()->intended('dashboard')->with($notification);
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        $notification = [
+            'message' => 'The provided credentials do not match our records',
+            'alert-type' => 'error',
+        ];
+
+        return back()->with($notification)->onlyInput('email');
     }
 
     public function profile() {
@@ -114,6 +117,11 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        $notification = [
+            'message' => 'Logout Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('login')->with($notification);
     }
 }

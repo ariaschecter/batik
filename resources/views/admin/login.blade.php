@@ -38,19 +38,25 @@
                         </div>
 
                         <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
-
+                        {{-- <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
                         <div class="p-3">
                             <form class="form-horizontal mt-3" method="POST" action="{{ route('admin.login.store') }}">
                                 @csrf
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" id="email" name="email" type="text" required="" placeholder="email">
+                                        <input class="form-control" id="email" name="email" type="text" placeholder="email">
+                                        @error('email')
+                                            <span class="text-danger"> {{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" id="password" name="password" type="password" required="" placeholder="Password">
+                                        <input class="form-control" id="password" name="password" type="password" placeholder="Password">
+                                        @error('password')
+                                            <span class="text-danger"> {{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
