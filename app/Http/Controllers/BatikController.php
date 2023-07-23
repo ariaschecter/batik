@@ -49,7 +49,7 @@ class BatikController extends Controller
         Batik::create($validated);
 
         $notification = [
-            'message' => 'Batik ' . $category->category_name .' Category Inserted Successfully',
+            'message' => 'Batik Inserted Successfully',
             'alert-type' => 'success',
         ];
         return redirect()->route('sub.category.index', $category->category_slug)->with($notification);
@@ -97,7 +97,7 @@ class BatikController extends Controller
         $batik->delete();
 
         $notification = [
-            'message' => 'Batik ' . $batik->batik_name . ' Deleted Successfully',
+            'message' => 'Batik Deleted Successfully',
             'alert-type' => 'success',
         ];
 

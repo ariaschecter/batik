@@ -92,7 +92,7 @@ class CityController extends Controller
         $city->delete();
 
         $notification = [
-            'message' => $city->city_name . ' City Deleted Successfully',
+            'message' => 'City Deleted Successfully',
             'alert-type' => 'success',
         ];
 

@@ -38,7 +38,7 @@ class HomeCategoryController extends Controller
             $request->validate([
                 'category_no' => 'required|integer|unique:categories,category_no',
             ], [
-                'category_no.unique' => 'The Category No has already been taken.'
+                'category_no.unique' => 'The Category Number has already been taken.'
             ]);
         }
 
@@ -74,7 +74,7 @@ class HomeCategoryController extends Controller
                 $request->validate([
                     'category_no' => 'required|integer|unique:categories,category_no',
                 ], [
-                    'category_no.unique' => 'The Category No has already been taken.'
+                    'category_no.unique' => 'The Category Number has already been taken.'
                 ]);
             }
         }
@@ -100,7 +100,7 @@ class HomeCategoryController extends Controller
         $category->delete();
 
         $notification = [
-            'message' => $category->category_name . ' Category Deleted Successfully',
+            'message' => 'Category Deleted Successfully',
             'alert-type' => 'success',
         ];
 

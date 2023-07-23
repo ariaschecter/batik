@@ -33,7 +33,7 @@ class CategoryController extends Controller
             $request->validate([
                 'category_no' => 'required|integer|unique:categories,category_no',
             ], [
-                'category_no.unique' => 'The Category No has already been taken.'
+                'category_no.unique' => 'The Category Number has already been taken.'
             ]);
         }
 
@@ -43,7 +43,7 @@ class CategoryController extends Controller
         Category::create($validated);
 
         $notification = [
-            'message' => 'Category ' . $city->city_name .' Inserted Successfully',
+            'message' => 'Category Inserted Successfully',
             'alert-type' => 'success',
         ];
         return redirect()->route('category.index', $city->city_slug)->with($notification);
@@ -68,7 +68,7 @@ class CategoryController extends Controller
                 $request->validate([
                     'category_no' => 'required|integer|unique:categories,category_no',
                 ], [
-                    'category_no.unique' => 'The Category No has already been taken.'
+                    'category_no.unique' => 'The Category Number has already been taken.'
                 ]);
             }
         }
@@ -94,7 +94,7 @@ class CategoryController extends Controller
         $category->delete();
 
         $notification = [
-            'message' => 'Category ' . $category->category_name . ' Deleted Successfully',
+            'message' => 'Category Deleted Successfully',
             'alert-type' => 'success',
         ];
 

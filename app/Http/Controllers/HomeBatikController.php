@@ -93,7 +93,7 @@ class HomeBatikController extends Controller
         $batik->delete();
 
         $notification = [
-            'message' => 'Batik ' . $batik->batik_name . ' Deleted Successfully',
+            'message' => 'Batik Deleted Successfully',
             'alert-type' => 'success',
         ];
 

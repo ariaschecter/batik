@@ -33,7 +33,7 @@ class SubCategoryController extends Controller
         SubCategory::create($validated);
 
         $notification = [
-            'message' => 'Sub Category ' . $category->category_name .' Inserted Successfully',
+            'message' => 'Sub Category Inserted Successfully',
             'alert-type' => 'success',
         ];
         return redirect()->route('sub.category.index', $category->category_slug)->with($notification);
@@ -68,7 +68,7 @@ class SubCategoryController extends Controller
         $subcategory->delete();
 
         $notification = [
-            'message' => 'Sub Category ' . $subcategory->sub_name . ' Deleted Successfully',
+            'message' => 'Sub Category Deleted Successfully',
             'alert-type' => 'success',
         ];
 
