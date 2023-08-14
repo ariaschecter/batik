@@ -54,7 +54,7 @@ class HomeController extends Controller
 
     public Function batik_index(Request $request) {
         if ($request->search) {
-            $title = $request->search;
+            $title = 'Pencarian Batik';
             $batiks = Batik::with('category.city')->where('batik_name', 'LIKE', '%' . $request->search . '%')->orderBy('created_at', 'DESC')->get();
         } else {
             $title = 'Semua Batik';

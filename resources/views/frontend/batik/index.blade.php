@@ -24,7 +24,7 @@
             </div><!-- /.block-title-two -->
 
             <ul class="collection-filter post-filter list-unstyled">
-                <li data-filter=".filter-item" class="active"><span>Semua Batik</span></li>
+                <li data-filter=".filter-item" class="active"><span>{{ $title }}</span></li>
                 @foreach ($cities as $city)
                     <li data-filter=".{{ $city->city_slug }}"><span>{{ $city->city_name }}</span></li>
                 @endforeach
