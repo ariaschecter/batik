@@ -48,7 +48,7 @@ class HomeController extends Controller
 
     public function city_category_index(City $city, Category $category) {
         $city = City::with('category')->findOrFail($city->id);
-        $title = $city->city_name;
+        $title = 'Kota';
         return view('frontend.city.details_grid', compact('city', 'title'));
     }
 
