@@ -65,7 +65,7 @@ class HomeController extends Controller
     }
 
     public Function batik_show(Batik $batik) {
-        $title = $batik->batik_name;
+        $title = 'Detail Batik';
         $batik->increment('viewed');
         $batik->category->city->increment('city_viewed');
         $batiks = Batik::latest()->limit(5)->get();
