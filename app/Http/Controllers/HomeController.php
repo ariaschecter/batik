@@ -28,15 +28,15 @@ class HomeController extends Controller
     }
 
     public function city_show_timeline(City $city) {
-        $title = $city->city_name;
+        $title = 'Kota';
         $categories = Category::with('batik')->where('city_id', $city->id)->orderBy('category_no', 'ASC')->get();
         return view('frontend.city.details_timeline', compact('categories', 'city', 'title'));
     }
 
     public function category_index(Category $category) {
-        $title = $category->category_name;
+        $title = 'Kategori';
         $category = Category::with('batik', 'sub_category')->findOrFail($category->id);
-        $categories = 'Kategori';
+        $categories = $category->city->category;
         return view('frontend.category.index', compact('category', 'title', 'categories'));
     }
 
