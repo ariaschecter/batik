@@ -6,7 +6,7 @@
 @endphp
 <section class="page-header" style="background-image: url({{ asset($setting->setting_banner) }});">
     <div class="container">
-        <h2>Semua Batik</h2>
+        <h2>{{ $title }}</h2>
     </div><!-- /.container -->
 </section><!-- /.page-header -->
 
