@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function category_index(Category $category) {
         $title = $category->category_name;
         $category = Category::with('batik', 'sub_category')->findOrFail($category->id);
-        $categories = $category->city->category;
+        $categories = 'Kategori';
         return view('frontend.category.index', compact('category', 'title', 'categories'));
     }
 
